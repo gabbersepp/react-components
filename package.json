@@ -1,0 +1,59 @@
+{
+  "name": "jb-react-components",
+  "version": "1.0.0",
+  "description": "A collection of different React components.",
+  "main": "dist/js/react-components.js",
+  "typings": "dist/react-components.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabbersepp/react-components.git"
+  },
+  "keywords": [],
+  "author": "Josef Biehler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gabbersepp/react-components/issues"
+  },
+  "homepage": "https://github.com/gabbersepp/react-components",
+  "files": [],
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --open --mode development",
+    "clean": "node node_modules/rimraf/bin.js build/out build/coverage test/TestMain.js",
+    "compile:dev": "node node_modules/webpack/bin/webpack.js",
+    "compile:prod": "node node_modules/webpack/bin/webpack.js -p",
+    "compile": "npm run clean && npm run compile:dev && npm run compile:prod",
+    "prepare-tests": "npm run compile && tsc --project tsconfig.test.json && node build/scripts/generate-test.js",
+    "test:dev": "npm run prepare-tests && node node_modules/testem/testem.js dev",
+    "test:ci": "npm run prepare-tests && node node_modules/testem/testem.js ci",
+    "lint": "node node_modules/tslint/bin/tslint -c tslint.json --project tsconfig.json -t verbose -o build/out/tslint.txt",
+    "dist": "npm run compile && node build/scripts/prepublish.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/react": "^16.8.8",
+    "@types/react-dom": "^16.8.2",
+    "@types/react-router-dom": "^4.3.1",
+    "@types/webpack-env": "^1.13.9",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "sass-loader": "^7.1.0",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^0.23.1",
+    "typescript": "^3.3.3333",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
+    "webpack-dev-server": "^3.2.1"
+  }
+}

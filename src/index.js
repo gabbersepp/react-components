@@ -1,1 +1,1 @@
-import FormContainer from "./js/components/FormContainer.js";
+import FormContainer from "./js/components/TsComp";

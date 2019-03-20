@@ -2,14 +2,15 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
+    entry: "./src/index.jsx",
     resolve: {
-        extensions: [".ts", ".tsx", ".js"]
+        extensions: [".ts", ".tsx", ".js", ".jsx"]
     },
     devtool: "source-map",
     module: {
       rules: [
         {
-          test: /\.(ts|tsx)$/,
+          test: /\.(ts|tsx|jsx)$/,
           exclude: /node_modules/,
           use: {
             loader: "babel-loader"

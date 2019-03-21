@@ -21,6 +21,9 @@ export default class Input extends React.Component<IInputProps, IInputState> {
 
     private onChange(val: string) {
         this.setState({ value: val });
-        this.props.onChange(val);
+        
+        if (this.props.onChange) {
+            this.props.onChange(val);
+        }
     }
 }

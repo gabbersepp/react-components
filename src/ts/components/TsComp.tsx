@@ -1,7 +1,7 @@
 import * as React from "react";
 import Input from "./../elements/Input";
 import Label from "./../elements/Label";
-import Overlay from "./../elements/Overlay";
+import MessageBox, { showOkCancel, hide } from "./messageBox/MessageBox";
 
 import Checkbox, { CheckboxCrossTypes } from "./../elements/Checkbox";
 import StateUtils from "../utils/StateUtils";
@@ -27,9 +27,9 @@ export default class TsComp extends React.Component<any, any> {
                 
                 <button onClick={() => this.toggle("chkDisabled")}>Disable</button>
                 <button onClick={() => this.toggle("chkChecked")}>Check</button>
-                <button onClick={() => this.toggle("overlay")}>Overlay</button>
+                <button onClick={() => showOkCancel("hallo", "msg").then(() => hide()).catch(() => hide())}>Overlay</button>
                 
-                {this.state.overlay ? (<Overlay>Hallo</Overlay>) : null}
+                <MessageBox></MessageBox>
             </div>
         )
     }

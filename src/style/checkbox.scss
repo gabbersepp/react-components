@@ -1,7 +1,7 @@
 @import "./global.scss";
 
 .chk-box {
-    @extend .border-box;
+    @extend .box-sizing;
     width: 13px;
     height: 13px;
     outline: 1px solid black;

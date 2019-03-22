@@ -1,0 +1,11 @@
+@import "./global.scss";
+
+.btn {
+    @extend .box-sizing;
+    cursor: pointer;
+    display: inline-block;
+    
+    &.disabled {
+        cursor: default;
+    }
+}

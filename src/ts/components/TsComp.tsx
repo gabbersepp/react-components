@@ -1,5 +1,7 @@
 import * as React from "react";
 import Input from "./../elements/Input";
+import Label from "./../elements/Label";
+
 import Checkbox, { CheckboxCrossTypes } from "./../elements/Checkbox";
 import StateUtils from "../utils/StateUtils";
 
@@ -16,7 +18,7 @@ export default class TsComp extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div>
-                {this.state.value}
+                <Label value={this.state.value}/>
                 <Input onChange={(v: string) => this.setState({value: v})}/>
                 <Checkbox crossType={CheckboxCrossTypes.DefaultCross} disabled={this.state.chkDisabled} checked={this.state.chkChecked}/>
                 <Checkbox crossType={CheckboxCrossTypes.GreenHook} disabled={this.state.chkDisabled} checked={this.state.chkChecked}/>

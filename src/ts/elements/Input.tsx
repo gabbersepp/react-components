@@ -5,7 +5,7 @@ export default class Input extends React.Component<IInputProps, IInputState> {
         super(props);
 
         this.state = {
-            value: props.value
+            value: props.value || ""
         }
     }
 
@@ -17,6 +17,12 @@ export default class Input extends React.Component<IInputProps, IInputState> {
                 value={this.state.value}
             />
         );
+    }
+
+    public componentDidUpdate(prevProps: IInputProps): void {
+        if (prevProps.value !== this.props.value) {
+            this.setState({ value: this.props.value });
+        }
     }
 
     private onChange(val: string) {

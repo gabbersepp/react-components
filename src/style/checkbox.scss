@@ -9,6 +9,7 @@
     margin-right: 0;
     margin-left: auto;
     cursor: pointer;
+    display: inline-block;
 
     &.disabled {
         opacity: 0.5;

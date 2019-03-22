@@ -1,6 +1,7 @@
 import * as React from "react";
 import { ILabelProps } from "../interfaces/ILabelProps";
 import { ILabelState } from "../interfaces/ILabelState";
+import "./../../style/label.scss";
 
 export default class Label extends React.Component<ILabelProps, ILabelState> {
     constructor(props: ILabelProps) {
@@ -12,13 +13,13 @@ export default class Label extends React.Component<ILabelProps, ILabelState> {
 
     public render(): JSX.Element {
         return (
-            <div className="" >{this.state.value}</div>
+            <div className="lbl" >{this.state.value}</div>
         );
     }
 
     public componentDidUpdate(prevProps: ILabelProps): void {
         if (prevProps.value !== this.props.value) {
-            this.setState({ value: prevProps.value });
+            this.setState({ value: this.props.value });
         }
     }
 }

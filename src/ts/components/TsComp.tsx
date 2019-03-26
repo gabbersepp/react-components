@@ -27,7 +27,7 @@ export default class TsComp extends React.Component<any, any> {
                 
                 <button onClick={() => this.toggle("chkDisabled")}>Disable</button>
                 <button onClick={() => this.toggle("chkChecked")}>Check</button>
-                <button onClick={() => showOkCancel("hallo", "msg").then(() => hide()).catch(() => hide())}>Overlay</button>
+                <button onClick={() => showOkCancel("hallo", "msg").then(() => alert("ok"))}>Overlay</button>
                 
                 <MessageBox></MessageBox>
             </div>

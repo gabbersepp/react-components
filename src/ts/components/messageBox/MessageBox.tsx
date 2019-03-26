@@ -11,14 +11,16 @@ const okCancelBtns: IMsgBoxButton[] = [{ title: "OK", onClick: null}, { title: "
 
 export function showOkCancel(title: string, msg: string): Promise<void> {
     return new Promise((resolve: () => void, reject: () => void) => {
-        okCancelBtns[0].onClick = resolve;
-        okCancelBtns[1].onClick = reject;
+        okCancelBtns[0].onClick = () => {
+            resolve();
+            instance.hide();
+        };
+        okCancelBtns[1].onClick = () => {
+            reject();
+            instance.hide();
+        };
         instance.show(title, msg, okCancelBtns);
     });
-}
-
-export function hide(): void {
-    instance.hide();
 }
 
 export default class MessageBox extends React.Component<{}, IMessageBoxState> {

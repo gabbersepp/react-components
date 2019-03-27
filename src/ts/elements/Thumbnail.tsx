@@ -18,6 +18,7 @@ export default class Thumbnail extends React.Component<IThumbnailProps, IThumbna
                 <If expression={this.state.show}>
                     <Overlay onClick={() => this.hide()}>
                         <img src={this.props.src} onClick={() => this.hide()}/>
+                        <span></span>
                     </Overlay>
                 </If>
                 <img src={this.props.src} onClick={() => this.show()}/>

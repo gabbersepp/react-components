@@ -9,6 +9,31 @@
         img {
             width: auto;
             height: auto;
+
+            &:hover ~ span {
+                display: inline;
+            }
+        }
+        span {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: grey;
+            border-radius: 50%;
+            padding: 0.2rem;
+            background-image: url("./../images/DefaultCross.svg");
+            width: 30px;
+            height: 30px;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+
+            &:hover {
+                display: inline;
+            }
+        }
+        .overlay-content > div {
+            position: relative;
         }
     }
 }

@@ -3,18 +3,18 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 
 module.exports = {
-    entry: "./src/index.jsx",
+    entry: "./src/index.js",
     resolve: {
-        extensions: [".ts", ".tsx", ".js", ".jsx"]
+        extensions: [".ts", ".tsx", ".js"]
     },
     devtool: "source-map",
     module: {
       rules: [
         {
-          test: /\.(ts|tsx|jsx)$/,
+          test: /\.(ts|tsx)$/,
           exclude: /node_modules/,
           use: {
-            loader: "babel-loader"
+            loader: "ts-loader"
           }
         },
         {

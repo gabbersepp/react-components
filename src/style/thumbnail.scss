@@ -1,0 +1,14 @@
+.thumbnail {
+    img {
+        width: 100px;
+        height: auto;
+        cursor: pointer;
+    }
+
+    .overlay-container {
+        img {
+            width: auto;
+            height: auto;
+        }
+    }
+}

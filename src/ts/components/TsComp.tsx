@@ -10,6 +10,7 @@ import Select from "./../elements/Select";
 import FileInput from "../elements/FileInput";
 
 import Toaster, { success } from "./Toaster";
+import Thumbnail from "./../elements/Thumbnail";
 
 let items: ISelectItem[] = [
     { key: "1", value: "text 1"},
@@ -57,7 +58,7 @@ export default class TsComp extends React.Component<any, any> {
                 <button onClick={() => this.toggle("chkChecked")}>Check</button>
                 <button onClick={() => showOkCancel("hallo", "msg").then(() => alert("ok"))}>Overlay</button>
                 <button onClick={() => this.setState({ selectionOptions: items2 })}>Change options</button>
-                
+                <Thumbnail src="https://institut2f.at/wp-content/uploads/2014/06/Facebook-Vorschaubild-wie-gehts-richtig.jpg"/>
                 <MessageBox></MessageBox>
             </div>
         )

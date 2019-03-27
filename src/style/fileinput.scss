@@ -1,0 +1,12 @@
+.file-input {
+    & > input {
+        display: none;
+    }
+
+    & > label {
+        display: inline-block;
+        width: 100%;
+        cursor: pointer;
+        text-align: center;
+    }
+}

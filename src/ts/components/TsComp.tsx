@@ -7,6 +7,7 @@ import Checkbox, { CheckboxCrossTypes } from "./../elements/Checkbox";
 import StateUtils from "../utils/StateUtils";
 import { ISelectItem } from "../interfaces/ISelectItem";
 import Select from "./../elements/Select";
+import FileInput from "../elements/FileInput";
 
 let items: ISelectItem[] = [
     { key: "1", value: "text 1"},
@@ -48,6 +49,7 @@ export default class TsComp extends React.Component<any, any> {
                 <Checkbox crossType={CheckboxCrossTypes.GreenHook} disabled={this.state.chkDisabled} checked={this.state.chkChecked}/>
                 <Select options={this.state.selectionOptions} onChange={val => this.setState({selectedValue: val.value})}/>
                 <Label value={this.state.selectedValue}/>
+                <FileInput onChange={(file: File) => this.setState({selectedValue: file.name})} title="Bitte wählen" accept={[".jpg", ".gif"]}/>
                 <button onClick={() => this.toggle("chkDisabled")}>Disable</button>
                 <button onClick={() => this.toggle("chkChecked")}>Check</button>
                 <button onClick={() => showOkCancel("hallo", "msg").then(() => alert("ok"))}>Overlay</button>

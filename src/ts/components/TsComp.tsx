@@ -9,6 +9,8 @@ import { ISelectItem } from "../interfaces/ISelectItem";
 import Select from "./../elements/Select";
 import FileInput from "../elements/FileInput";
 
+import Toaster, { success } from "./Toaster";
+
 let items: ISelectItem[] = [
     { key: "1", value: "text 1"},
     { key: "2", value: "text 123"},
@@ -50,6 +52,7 @@ export default class TsComp extends React.Component<any, any> {
                 <Select options={this.state.selectionOptions} onChange={val => this.setState({selectedValue: val.value})}/>
                 <Label value={this.state.selectedValue}/>
                 <FileInput onChange={(file: File) => this.setState({selectedValue: file.name})} title="Bitte wählen" accept={[".jpg", ".gif"]}/>
+                <Toaster/>
                 <button onClick={() => this.toggle("chkDisabled")}>Disable</button>
                 <button onClick={() => this.toggle("chkChecked")}>Check</button>
                 <button onClick={() => showOkCancel("hallo", "msg").then(() => alert("ok"))}>Overlay</button>
@@ -64,5 +67,6 @@ export default class TsComp extends React.Component<any, any> {
         const newObj: any = StateUtils.newFromObj(this.state);
         newObj[prop] = !newObj[prop];
         this.setState(newObj);
+        success("erfolgreich");
     }
 }

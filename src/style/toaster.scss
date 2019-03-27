@@ -1,0 +1,28 @@
+.message {
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    transition-property: opacity;
+    transition-duration: 2s;
+    opacity: 1;
+
+    &.fade-out {
+        opacity: 0;
+    }
+
+    & > * {
+        text-align: center;
+    }
+
+    & .success {
+        background-color: green;
+    }
+
+    & .error {
+        background-color: red;
+    }
+
+    & .info {
+        background-color: orange;
+    }
+}

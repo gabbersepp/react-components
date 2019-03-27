@@ -1,0 +1,32 @@
+.select {
+    width: 100%;
+    position: relative;
+
+    input {
+        width: 100%;
+    }
+
+    .select-results {
+        position: absolute;
+        width: 100%;
+        display: block;
+        visibility: hidden;
+        background-color: white;
+
+        &> div:hover {
+            background-color: lightblue;
+            cursor: pointer;
+        }
+    }
+
+    &:focus-within .select-results, .select-results:hover {
+        visibility: visible;
+    }
+
+    &:not(:focus-within) .select-results:hover {
+        visibility: hidden;
+        transition-property: visibility;
+        transition-delay: 100ms;
+        transition-timing-function: step-end;
+    }
+}

@@ -13,16 +13,17 @@ export default class Select extends React.Component<ISelectProps, ISelectState> 
         this.state = {
             selectedKey: props.selectedKey || "",
             filtered: props.options || [],
-            options: props.options || []
+            options: props.options || [],
+            dropDownOpened: false
         }
     }
 
     public render(): JSX.Element {
         return (
             <div className="select">
-                <Input value={this.getValue(this.props.selectedKey)} onChange={(val) => this.filter(val)}/>
-                <div className="select-results">
-                    {this.state.filtered.map(i => (<div className="select-item" key={i.key} onClick={() => this.select(i)}>{i.value}</div>))}
+                <Input onFocus={() => this.openDropdown()} value={this.getValue(this.props.selectedKey)} onChange={(val) => this.filter(val)}/>
+                <div className={`select-results ${this.state.dropDownOpened ? "open" : ""}`}>
+                    {this.state.filtered.map(i => (<div tabIndex={0} className="select-item" key={i.key} onClick={(e) => this.select(i, e.currentTarget)}>{i.value}</div>))}
                 </div>
             </div>
         )
@@ -37,8 +38,19 @@ export default class Select extends React.Component<ISelectProps, ISelectState> 
         }
     }
 
-    private select(item: ISelectItem): void {
+    private openDropdown(): void {
+        const newState = StateUtils.setProp(this.state, "dropDownOpened", true);
+        this.setState(newState);
+    }
+
+    private closeDropdown(): void {
+        const newState = StateUtils.setProp(this.state, "dropDownOpened", false);
+        this.setState(newState);
+    }
+
+    private select(item: ISelectItem, e: HTMLDivElement): void {
         this.props.onChange(item);
+        this.closeDropdown();
     }
 
     private getValue(key: string): string {

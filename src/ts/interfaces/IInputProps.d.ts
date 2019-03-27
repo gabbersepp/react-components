@@ -1,5 +1,6 @@
 interface IInputProps {
     placeholder?: string;
     value?: string;
-    onChange?: (val: string) => void;
+    onChange: (val: string) => void;
+    onFocus?: () => void;
 }

@@ -10,4 +10,10 @@ export default class StateUtils {
         }
         return t;
     }
+
+    public static setProp<T extends IIndexable>(obj: T, prop: string, val: any): T {
+        const newState: T = this.newFromObj(obj);
+        newState[prop] = val;
+        return newState;
+    }
 }

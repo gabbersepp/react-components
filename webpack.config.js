@@ -2,12 +2,39 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 
-module.exports = {
-    entry: "./src/index.js",
+module.exports = function(env) 
+{ 
+  const dev = env === "dev";
+  const externals = dev ? {} : {
+    'react': 'react',
+    'react-dom': 'react-dom'
+  };
+  const plugins = [];
+
+  if (dev) {
+    plugins.push(new HtmlWebPackPlugin({
+      template: "./src/index.html",
+      filename: "./index.html"
+    }));
+  }
+
+  plugins.push(new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: "jb-react-components.css"
+  }));
+
+  return {
+    entry: dev ? "./src/index.js" : "./src/index-bundle.js",
     resolve: {
         extensions: [".ts", ".tsx", ".js"]
     },
     devtool: "source-map",
+    output: {
+      filename: "jb-react-components.js",
+      path: path.join(__dirname, "./build/out/")
+    },
+    mode: dev ? "development" : "production",
     module: {
       rules: [
         {
@@ -20,7 +47,7 @@ module.exports = {
         {
             test: /\.scss$/,
             use: [
-                MiniCssExtractPlugin.loader,//"style-loader",
+                MiniCssExtractPlugin.loader,
                 "css-loader",
                 "sass-loader"
             ]
@@ -33,23 +60,13 @@ module.exports = {
                   options: {
                       name: '[path][name].[ext]',
                       context: path.resolve(__dirname, "src/"),
-                      outputPath: 'dist/'
+                      outputPath: './'
                   }
               }
           ] 
         },
       ]
     },
-    plugins: [
-        new HtmlWebPackPlugin({
-            template: "./src/index.html",
-            filename: "./index.html"
-        }),
-        new MiniCssExtractPlugin({
-            // Options similar to the same options in webpackOptions.output
-            // both options are optional
-            filename: "[name].css",
-            chunkFilename: "[id].css"
-        })
-    ]
-  };
+    plugins: plugins,
+    externals: externals
+  }};

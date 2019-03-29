@@ -1,5 +1,8 @@
 # React Components
 
+[![NPM](https://img.shields.io/npm/v/jb-react-components.svg)](https://www.npmjs.com/package/jb-react-components)
+![David](https://david-dm.org/gabbersepp/react-components.svg) ![David](https://david-dm.org/gabbersepp/react-components/dev-status.svg)
+
 This is a collection of different components I am using in my React projects. Feel free to use them, too.
 
 ## Getting Started

@@ -6,7 +6,7 @@
 After starting development of React apps, I started to do the same things over and over again. I decided to put all those stuff into this public library.  
 
 ## Usage
-For live examples, please see https://gabbersepp.github.io/react-components/.
+If you are looking for live demonstration and code examples, please visit https://gabbersepp.github.io/react-components/.
 
 ### Install with npm
 
@@ -35,9 +35,6 @@ Include following HTML code:
 ### Peer dependencies
 
 The components are built against React v16.x. But as they are without very complexe stuff, other versions should be applicable, too.
-
-## Examples
-
 
 
 ## For contributors - Running the tests

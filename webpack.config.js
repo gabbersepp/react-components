@@ -24,15 +24,17 @@ module.exports = function(env)
       filename: "jb-react-components.css"
   }));
 
+  // index-bundle must be .ts to force tsc to create a definition file!
   return {
-    entry: dev ? "./src/index.js" : "./src/index-bundle.js",
+    entry: dev ? "./src/index.js" : "./src/index-bundle.ts",
     resolve: {
         extensions: [".ts", ".tsx", ".js"]
     },
     devtool: "source-map",
     output: {
       filename: "jb-react-components.js",
-      path: path.join(__dirname, "./build/out/")
+      path: path.join(__dirname, "./build/out/"),
+      libraryTarget: "umd"
     },
     mode: dev ? "development" : "production",
     module: {

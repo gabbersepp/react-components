@@ -2,13 +2,13 @@
   "name": "jb-react-components",
   "version": "1.0.0",
   "description": "A collection of different React components.",
-  "main": "dist/js/jb-react-components.js",
-  "typings": "dist/jb-react-components.d.ts",
+  "main": "dist/jb-react-components.js",
+  "typings": "dist/index-bundle.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gabbersepp/react-components.git"
   },
-  "keywords": [],
+  "keywords": [], 
   "author": "Josef Biehler",
   "license": "MIT",
   "bugs": {

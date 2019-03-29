@@ -33,7 +33,7 @@ module.exports = function(env)
     devtool: "source-map",
     output: {
       filename: "jb-react-components.js",
-      path: path.join(__dirname, "./build/out/"),
+      path: path.join(__dirname, "./dist/"),
       libraryTarget: "umd"
     },
     mode: dev ? "development" : "production",

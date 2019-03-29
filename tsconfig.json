@@ -8,6 +8,7 @@
         "jsx": "react",
         "baseUrl": "./",
         "declaration": true,
+        "declarationDir": "dist"
     },
     "include": [
         "./src/**/*"

@@ -1,3 +1,3 @@
-import { ILabelProps } from "./ILabelProps";
-
-export interface ILabelState extends ILabelProps {}
+interface ILabelState {
+    value: string;
+}

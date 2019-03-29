@@ -1,6 +1,5 @@
 import * as React from "react";
 import { ILabelProps } from "../interfaces/ILabelProps";
-import { ILabelState } from "../interfaces/ILabelState";
 import "./../../style/label.scss";
 
 export default class Label extends React.Component<ILabelProps, ILabelState> {

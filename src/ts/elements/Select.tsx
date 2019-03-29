@@ -1,10 +1,10 @@
 import * as React from "react";
 import Input from "./Input";
 import { ISelectProps } from "../interfaces/ISelectProps";
-import { ISelectState } from "../interfaces/ISelectState";
 import { ISelectItem } from "../interfaces/ISelectItem";
 import StateUtils from "../utils/StateUtils";
 import "./../../style/select.scss";
+import { ISelectState } from "../interfaces/ISelectState";
 
 export default class Select extends React.Component<ISelectProps, ISelectState> {
 

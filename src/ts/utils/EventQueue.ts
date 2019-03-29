@@ -1,5 +1,3 @@
-import { IIndexable } from "../interfaces/IIndexable";
-
 class EventQueue {
     private functions: (() => void)[] = [];
     private handles: number[] = [];

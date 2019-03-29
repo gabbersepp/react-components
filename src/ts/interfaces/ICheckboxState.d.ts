@@ -1,4 +1,4 @@
-export interface ICheckboxState {
+interface ICheckboxState {
     checked: boolean;
     disabled: boolean;
 }

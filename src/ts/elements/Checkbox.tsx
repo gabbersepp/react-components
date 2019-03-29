@@ -2,7 +2,6 @@ import * as React from "react";
 import "./../../style/checkbox.scss";
 import StateUtils from "../utils/StateUtils";
 import { ICheckboxProps } from "../interfaces/ICheckboxProps";
-import { ICheckboxState } from "../interfaces/ICheckboxState";
 // see: https://github.com/Jimdo/typings-for-css-modules-loader
 
 export default class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {

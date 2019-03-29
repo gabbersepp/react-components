@@ -1,3 +1,3 @@
-export interface IThumbnailState {
+interface IThumbnailState {
     show: boolean;
 }

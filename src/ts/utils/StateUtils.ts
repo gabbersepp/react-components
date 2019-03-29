@@ -1,5 +1,3 @@
-import { IIndexable } from "../interfaces/IIndexable";
-
 export default class StateUtils {
     public static newFromObj<T extends IIndexable>(obj: T): T {
         const t: T = <T>{};

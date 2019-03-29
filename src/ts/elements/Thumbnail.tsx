@@ -2,7 +2,6 @@ import * as React from "react";
 import If from "./If";
 import "./../../style/thumbnail.scss";
 import { IThumbnailProps } from "../interfaces/IThumbnailProps";
-import { IThumbnailState } from "../interfaces/IThumbnailState";
 import Overlay from "./Overlay";
 
 export default class Thumbnail extends React.Component<IThumbnailProps, IThumbnailState> {

@@ -1,6 +1,5 @@
 import * as React from "react";
 import { IFileUploadProps } from "../interfaces/IFileUploadProps";
-import { IFileUploadState } from "../interfaces/IFileUploadState";
 import "./../../style/fileinput.scss";
 
 export default class FileInput extends React.Component<IFileUploadProps, IFileUploadState> {

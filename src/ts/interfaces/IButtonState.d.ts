@@ -1,3 +1,3 @@
-export interface IButtonState {
+interface IButtonState {
     disabled?: boolean;
 }

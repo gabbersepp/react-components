@@ -1,5 +1,4 @@
 import * as React from "react";
-import { IToasterState } from "../interfaces/IToasterState";
 import If from "./../elements/If";
 import "./../../style/toaster.scss";
 import StateUtils from "../utils/StateUtils";

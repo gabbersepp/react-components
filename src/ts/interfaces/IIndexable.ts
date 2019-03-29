@@ -1,3 +1,3 @@
-export interface IIndexable {
+interface IIndexable {
     [key: string]: any;
   }

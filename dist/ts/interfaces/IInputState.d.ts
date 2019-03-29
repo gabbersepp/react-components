@@ -1,0 +1,3 @@
+interface IInputState {
+    value: string;
+}

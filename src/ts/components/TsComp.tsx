@@ -11,6 +11,8 @@ import FileInput from "../elements/FileInput";
 
 import Toaster, { success } from "./Toaster";
 import Thumbnail from "./../elements/Thumbnail";
+import Tabs from "./tabs/Tabs";
+import { ITab } from "../interfaces/ITab";
 
 let items: ISelectItem[] = [
     { key: "1", value: "text 1"},
@@ -29,6 +31,11 @@ let items2: ISelectItem[] = [
     { key: "51", value: "texasdt asdas"},
 ]
 
+let tabs: ITab[] = [
+    { title: "Hallo", id: "1", element: (<div>Hallo</div> ), active: false, enabled: true},
+    { title: "Hallo2", id: "2", element: (<div>Hallo2</div> ), active: true, enabled: true},
+    
+]
 export default class TsComp extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
@@ -59,6 +66,7 @@ export default class TsComp extends React.Component<any, any> {
                 <button onClick={() => showOkCancel("hallo", "msg").then(() => alert("ok"))}>Overlay</button>
                 <button onClick={() => this.setState({ selectionOptions: items2 })}>Change options</button>
                 <MessageBox></MessageBox>
+                <Tabs tabs={tabs}/>
             </div>
         )
     }

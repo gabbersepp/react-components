@@ -1,0 +1,25 @@
+.tabs {
+    width: 100%;
+
+    .bar {
+        height: 50px;
+
+        .header {
+            display: block;
+
+            &.active {
+                background-color: green;
+            }
+        }
+    }
+
+    .content {
+        .body {
+            display: none;
+
+            &.active {
+                display: block;
+            }
+        }
+    }
+}

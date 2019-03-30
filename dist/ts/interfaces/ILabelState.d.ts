@@ -1,0 +1,3 @@
+interface ILabelState {
+    value: string;
+}

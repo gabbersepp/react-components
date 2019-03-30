@@ -1,0 +1,3 @@
+interface IThumbnailState {
+    show: boolean;
+}

@@ -6,8 +6,18 @@ module.exports = function(env)
 { 
   const dev = env === "dev";
   const externals = dev ? {} : {
-    'react': 'react',
-    'react-dom': 'react-dom'
+    "react": {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react'
+    },
+    "react-dom": {
+      root: 'ReactDOM',
+      commonjs2: 'react-dom',
+      commonjs: 'react-dom',
+      amd: 'react-dom'
+    }
   };
   const plugins = [];
 
@@ -34,7 +44,8 @@ module.exports = function(env)
     output: {
       filename: "jb-react-components.js",
       path: path.join(__dirname, "./dist/"),
-      libraryTarget: "umd"
+      libraryTarget: "umd",
+      library: "ReactComponents"
     },
     mode: dev ? "development" : "production",
     module: {

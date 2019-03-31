@@ -1,5 +1,6 @@
 import * as React from "react";
 
+// TODO: Remove props.children maybe
 export default class TabContent extends React.Component<ITabContentProps, ITabContentState> {
     public render(): JSX.Element {
         return (

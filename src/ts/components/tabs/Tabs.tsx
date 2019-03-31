@@ -1,10 +1,10 @@
 import * as React from "react";
-import { ITabsProps } from "../../interfaces/ITabsProps";
-import TabHeader from "./TabHeader";
-import TabContent from "./TabContent";
+import { ITabsProps } from "../../interfaces/tabs/ITabsProps";
+import TabHeader from "./internal/TabHeader";
+import TabContent from "./internal/TabContent";
 import "./../../../style/tabs.scss";
-import { ITabsState } from "./../../interfaces/ITabsState";
-import { ITab } from "./../../interfaces/ITab";
+import { ITabsState } from "../../interfaces/tabs/ITabsState";
+import { ITab } from "../../interfaces/tabs/ITab";
 import StateUtils from "./../../utils/StateUtils";
 
 export default class Tabs extends React.Component<ITabsProps, ITabsState> {
@@ -19,10 +19,7 @@ export default class Tabs extends React.Component<ITabsProps, ITabsState> {
             tabs: props.tabs || []
         }
     }
-    /*
-    Die tabs klassen umbenennen auf "Internal*" und dann die Tabs klassen neu anlegen
-    Tabs.tsx muss dann aus den children evtl die infos rausholen und aggregieren?
-    */
+
     public render(): JSX.Element {
         return (
             <div className="tabs">

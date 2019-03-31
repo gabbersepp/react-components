@@ -12,8 +12,10 @@ import FileInput from "../elements/FileInput";
 import Toaster, { success } from "./Toaster";
 import Thumbnail from "./../elements/Thumbnail";
 import Tabs from "./tabs/Tabs";
-import { ITab } from "../interfaces/ITab";import Button from "../elements/Button";
-import Tab from "./tabs/Tab";
+import { ITab } from "../interfaces/tabs/ITab";import Button from "../elements/Button";
+import Tab from "./tabs/external/Tab";
+import TabHeader from "./tabs/external/TabHeader";
+import TabBody from "./tabs/external/TabBody";
 ;
 
 let items: ISelectItem[] = [
@@ -73,24 +75,26 @@ export default class TsComp extends React.Component<any, any> {
                 <MessageBox></MessageBox>
                 <Tabs tabs={tabs}/>
                 <Button title="Toggle tab disable" onClick={() => this.toggle("tab")}/>
-                <Tabs>
+                {/*<Tabs>
                     <Tab>
                         <TabHeader>
-
+                            Test
                         </TabHeader>
                         <TabBody>
-
+                            <div>
+                                <Button title="button von tab 1" onClick={() => {}}/>
+                            </div>
                         </TabBody>
                     </Tab>
                     <Tab>
                         <TabHeader>
-
+                            Test2
                         </TabHeader>
                         <TabBody>
-
+                            <Button title="button von tab 1" onClick={() => {}}/>
                         </TabBody>
                     </Tab>
-                </Tabs>
+                </Tabs>*/}
             </div>
         )
     }

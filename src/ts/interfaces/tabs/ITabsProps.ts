@@ -1,5 +1,5 @@
 import { ITab } from "./ITab";
-import Tab from "../components/tabs/Tab";
+import Tab from "../../components/tabs/external/Tab";
 
 export interface ITabsProps {
     tabs?: ITab[];

@@ -10,28 +10,50 @@ import StateUtils from "./../../utils/StateUtils";
 export default class Tabs extends React.Component<ITabsProps, ITabsState> {
     constructor(props: ITabsProps) {
         super(props);
+
+        if (props.tabs && props.children) {
+            throw new Error("Not able to set tabs through both properties");
+        }
+
         this.state = {
             tabs: props.tabs || []
         }
     }
-    
+    /*
+    Die tabs klassen umbenennen auf "Internal*" und dann die Tabs klassen neu anlegen
+    Tabs.tsx muss dann aus den children evtl die infos rausholen und aggregieren?
+    */
     public render(): JSX.Element {
         return (
             <div className="tabs">
                 <div className="bar">
-                    {this.props.tabs.map(tab => <TabHeader key={tab.id} onClick={() => this.selectTab(tab.id)} active={tab.active} title={tab.title}/>)}
+                    {this.state.tabs.map(tab => <TabHeader key={tab.id + tab.active + tab.enabled} disabled={!tab.enabled} onClick={() => this.selectTab(tab)} active={tab.active} title={tab.title}/>)}
                 </div>
                 <div className="content">
-                    {this.props.tabs.map(tab => <TabContent key={tab.id} active={tab.active} element={tab.element}/>)}
+                    {this.state.tabs.map(tab => <TabContent key={tab.id + tab.active + tab.enabled} active={tab.active} element={tab.element}/>)}
                 </div>
             </div>
         )
     }
 
-    public selectTab(id: string) {
-        const newState = StateUtils.newFromObj(this.state);
-        newState.tabs.forEach((t: ITab) => t.active = t.id === id);
-        this.setState(newState);
+    public componentDidUpdate(prevProps: ITabsProps) {
+        const update: boolean = prevProps.tabs !== this.props.tabs ||
+            prevProps.tabs.length !== this.props.tabs.length ||
+            prevProps.tabs.filter(t => this.props.tabs.find(t2 => t2.id === t.id && 
+                t2.active === t.active && t2.enabled === t.enabled)).length !== prevProps.tabs.length;
 
+        if (update) {
+            const newState: ITabsState = StateUtils.newFromObj(this.state);
+            newState.tabs = this.props.tabs;
+            this.setState(newState);
+        }
+    }
+
+    public selectTab(tab: ITab) {
+        if (tab.enabled) {
+            const newState = StateUtils.newFromObj(this.state);
+            newState.tabs.forEach((t: ITab) => t.active = t.id === tab.id);
+            this.setState(newState);
+        }
     }
 }

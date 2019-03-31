@@ -4,7 +4,7 @@ export default class TabContent extends React.Component<ITabContentProps, ITabCo
     public render(): JSX.Element {
         return (
             <div className={`body ${this.props.active ? "active" : ""}`}>
-                {this.props.element}
+                { this.props.element || this.props.children }
             </div>
         )
     }
@@ -12,7 +12,8 @@ export default class TabContent extends React.Component<ITabContentProps, ITabCo
 
 interface ITabContentProps {
     active?: boolean;
-    element: React.ReactElement;
+    element?: React.ReactElement;
+    children?: React.ReactElement | React.ReactElement[];
 }
 
 interface ITabContentState {

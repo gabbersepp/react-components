@@ -2,13 +2,32 @@
     width: 100%;
 
     .bar {
-        height: 50px;
+        border-bottom: 1px solid red;
+        width: 100%;
 
         .header {
-            display: block;
+            display: inline-block;
+            border-top: 1px solid black;
+            width: 100px;
+            cursor: pointer;
 
             &.active {
-                background-color: green;
+                
+            }
+
+            &.disabled {
+                cursor: default;
+            }
+
+            &~.header {
+                border-left: 1px solid brown;
+            }
+
+            &:first-child {
+                border-left: 1px solid black;
+            }
+            &:last-child {
+                border-right: 1px solid black;
             }
         }
     }

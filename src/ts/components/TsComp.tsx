@@ -12,7 +12,9 @@ import FileInput from "../elements/FileInput";
 import Toaster, { success } from "./Toaster";
 import Thumbnail from "./../elements/Thumbnail";
 import Tabs from "./tabs/Tabs";
-import { ITab } from "../interfaces/ITab";
+import { ITab } from "../interfaces/ITab";import Button from "../elements/Button";
+import Tab from "./tabs/Tab";
+;
 
 let items: ISelectItem[] = [
     { key: "1", value: "text 1"},
@@ -32,10 +34,10 @@ let items2: ISelectItem[] = [
 ]
 
 let tabs: ITab[] = [
-    { title: "Hallo", id: "1", element: (<div>Hallo</div> ), active: false, enabled: true},
+    { title: "Hallo", id: "1", element: (<div>Hallo</div> ), active: false, enabled: true },
     { title: "Hallo2", id: "2", element: (<div>Hallo2</div> ), active: true, enabled: true},
-    
 ]
+
 export default class TsComp extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
@@ -45,11 +47,14 @@ export default class TsComp extends React.Component<any, any> {
             chkChecked: false,
             overlay: false,
             selectedValue: "",
-            selectionOptions: items
+            selectionOptions: items,
+            tab: false
         }
     }
+
     public render(): JSX.Element {
 
+        tabs[0].enabled = this.state.tab;
 
         return (
             <div>
@@ -67,6 +72,25 @@ export default class TsComp extends React.Component<any, any> {
                 <button onClick={() => this.setState({ selectionOptions: items2 })}>Change options</button>
                 <MessageBox></MessageBox>
                 <Tabs tabs={tabs}/>
+                <Button title="Toggle tab disable" onClick={() => this.toggle("tab")}/>
+                <Tabs>
+                    <Tab>
+                        <TabHeader>
+
+                        </TabHeader>
+                        <TabBody>
+
+                        </TabBody>
+                    </Tab>
+                    <Tab>
+                        <TabHeader>
+
+                        </TabHeader>
+                        <TabBody>
+
+                        </TabBody>
+                    </Tab>
+                </Tabs>
             </div>
         )
     }

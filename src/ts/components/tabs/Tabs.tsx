@@ -6,6 +6,10 @@ import "./../../../style/tabs.scss";
 import { ITabsState } from "../../interfaces/tabs/ITabsState";
 import { ITab } from "../../interfaces/tabs/ITab";
 import StateUtils from "./../../utils/StateUtils";
+import Tab from "./external/Tab";
+
+import TabHeaderExternal from "./external/TabHeader";
+import TabContentExternal from "./external/TabContent";
 
 export default class Tabs extends React.Component<ITabsProps, ITabsState> {
     constructor(props: ITabsProps) {
@@ -16,7 +20,7 @@ export default class Tabs extends React.Component<ITabsProps, ITabsState> {
         }
 
         this.state = {
-            tabs: props.tabs || []
+            tabs: props.tabs || this.buildTabsFromProps() || []
         }
     }
 
@@ -34,6 +38,11 @@ export default class Tabs extends React.Component<ITabsProps, ITabsState> {
     }
 
     public componentDidUpdate(prevProps: ITabsProps) {
+        if (prevProps.children) {
+            // TODO: fix
+            return;
+        }
+
         const update: boolean = prevProps.tabs !== this.props.tabs ||
             prevProps.tabs.length !== this.props.tabs.length ||
             prevProps.tabs.filter(t => this.props.tabs.find(t2 => t2.id === t.id && 
@@ -52,5 +61,56 @@ export default class Tabs extends React.Component<ITabsProps, ITabsState> {
             newState.tabs.forEach((t: ITab) => t.active = t.id === tab.id);
             this.setState(newState);
         }
+    }
+
+    private buildTabsFromProps(): ITab[] {
+        if (this.props.tabs) {
+            return this.props.tabs;
+        }
+
+        let childArray: any[] = [];
+
+        if (Array.isArray(this.props.children)) {
+            childArray = this.props.children;
+        } else {
+            childArray.push(this.props.children);
+        }
+
+        const tabs: ITab[] = [];
+        let id: number = 0;
+
+        childArray.forEach((reactTab: React.ReactElement<Tab>) => {
+            const tab: ITab = {
+                enabled: true,
+                id: id++ + ""
+            } as any;
+
+            if (!(reactTab.type === Tab)) {
+                throw new Error("unexpected type. Expected chidl to be of type 'Tab'");
+            }
+
+            const tabHeader: any = (reactTab.props as any).children.find((x: any) => x.type === TabHeaderExternal);
+            if (!tabHeader) {
+                throw new Error("expected one child of type 'TabHeader'");
+            }
+
+            const title: string = tabHeader.props.children;
+            tab.title = title;
+
+            const tabContent: any = (reactTab.props as any).children.find((x: any) => x.type === TabContentExternal);
+            if (!tabContent) {
+                throw new Error("expected one child of type 'TabContent'");
+            }
+
+            tab.element = (<div>{tabContent.props.children}</div>);
+
+            tabs.push(tab);
+        });
+
+        if (tabs.length > 0) {
+            tabs[0].active = true;
+        }
+
+        return tabs;
     }
 }

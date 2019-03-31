@@ -15,8 +15,7 @@ import Tabs from "./tabs/Tabs";
 import { ITab } from "../interfaces/tabs/ITab";import Button from "../elements/Button";
 import Tab from "./tabs/external/Tab";
 import TabHeader from "./tabs/external/TabHeader";
-import TabBody from "./tabs/external/TabBody";
-;
+import TabBody from "./tabs/external/TabContent";
 
 let items: ISelectItem[] = [
     { key: "1", value: "text 1"},
@@ -75,7 +74,7 @@ export default class TsComp extends React.Component<any, any> {
                 <MessageBox></MessageBox>
                 <Tabs tabs={tabs}/>
                 <Button title="Toggle tab disable" onClick={() => this.toggle("tab")}/>
-                {/*<Tabs>
+                <Tabs>
                     <Tab>
                         <TabHeader>
                             Test
@@ -91,10 +90,12 @@ export default class TsComp extends React.Component<any, any> {
                             Test2
                         </TabHeader>
                         <TabBody>
-                            <Button title="button von tab 1" onClick={() => {}}/>
+                            <Button title="button von tab 2" onClick={() => {}}/>
+                            <Button title="button von tab 2" onClick={() => {}}/>
+                            
                         </TabBody>
                     </Tab>
-                </Tabs>*/}
+                </Tabs>
             </div>
         )
     }

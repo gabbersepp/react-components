@@ -16,17 +16,49 @@ export default class Select extends React.Component<ISelectProps, ISelectState> 
             options: props.options || [],
             dropDownOpened: false
         }
+        this.fetchBlur = this.fetchBlur.bind(this);
+        this.selectRef = React.createRef();
     }
+
+    private selectRef: any;
 
     public render(): JSX.Element {
         return (
-            <div className="select">
-                <Input onFocus={() => this.openDropdown()} value={this.getValue(this.props.selectedKey)} onChange={(val) => this.filter(val)}/>
+            <div className="select" ref={this.selectRef}>
+                <Input onFocus={() => this.openDropdown()} value={this.getValue(this.state.selectedKey)} onChange={(val) => this.filter(val)}/>
                 <div className={`select-results ${this.state.dropDownOpened ? "open" : ""}`}>
                     {this.state.filtered.map(i => (<div tabIndex={0} className="select-item" key={i.key} onClick={(e) => this.select(i, e.currentTarget)}>{i.value}</div>))}
                 </div>
             </div>
         )
+    }
+
+    private fetchBlur(e: MouseEvent): void {
+        if (this.state.dropDownOpened) {// && target.className.indexOf("select-item") <= -1) {
+            let el: any = e.target;
+            let found: boolean = false;
+
+            while (el !== null) {
+                if (el === this.selectRef.current) {
+                    found = true;
+                    break;
+                }
+
+                el = el.parentElement;
+            }
+
+            if (!found) {
+                this.closeDropdown();
+            }
+        }
+    }
+
+    public componentDidMount() {
+        document.addEventListener("click", this.fetchBlur);
+    }
+
+    public componentWillUnmount() {
+        document.removeEventListener("click", this.fetchBlur);
     }
 
     public componentDidUpdate(prevProps: ISelectProps) {
@@ -38,19 +70,22 @@ export default class Select extends React.Component<ISelectProps, ISelectState> 
         }
     }
 
+    private closeDropdown(state?: ISelectState): void {
+        state = state || StateUtils.newFromObj(this.state);
+        state.dropDownOpened = false;
+        this.setState(state);
+    }
+
     private openDropdown(): void {
         const newState = StateUtils.setProp(this.state, "dropDownOpened", true);
         this.setState(newState);
     }
 
-    private closeDropdown(): void {
-        const newState = StateUtils.setProp(this.state, "dropDownOpened", false);
-        this.setState(newState);
-    }
-
     private select(item: ISelectItem, e: HTMLDivElement): void {
         this.props.onChange(item);
-        this.closeDropdown();
+        const newState: ISelectState = StateUtils.newFromObj(this.state);
+        newState.selectedKey = item.key;
+        this.closeDropdown(newState);
     }
 
     private getValue(key: string): string {

@@ -1,8 +1,12 @@
 // index-bundle must be .ts to force tsc to create a definition file!
 
 // components
-import MessageBox from "./ts/components/messageBox/MessageBox";
-import Toaster from "./ts/components/Toaster";
+import MessageBox, { showOkCancel } from "./ts/components/messageBox/MessageBox";
+import Toaster, { success } from "./ts/components/Toaster";
+import Tabs from "./ts/components/tabs/Tabs";
+import Tab from "./ts/components/tabs/external/Tab";
+import TabHeader from "./ts/components/tabs/external/TabHeader";
+import TabContent from "./ts/components/tabs/external/TabContent";
 
 // elements
 import Button from "./ts/elements/Button";
@@ -26,6 +30,20 @@ import { IOverlayProps } from "./ts/interfaces/IOverlayProps";
 import { ISelectItem } from "./ts/interfaces/ISelectItem";
 import { ISelectProps } from "./ts/interfaces/ISelectProps";
 import { IThumbnailProps } from "./ts/interfaces/IThumbnailProps";
+import { ITabsProps } from "./ts/interfaces/tabs/ITabsProps";
+import { ITabProps } from "./ts/interfaces/tabs/ITabProps";
+import { ITabHeaderProps } from "./ts/interfaces/tabs/ITabHeaderProps";
+import { ITabContentProps } from "./ts/interfaces/tabs/ITabContentProps";
+import { ITab } from "./ts/interfaces/tabs/ITab";
+
+
+const toaster = {
+    success
+}
+
+const messageBox = {
+    showOkCancel
+}
 
 export {
     MessageBox,
@@ -40,6 +58,10 @@ export {
     Overlay,
     Select,
     Thumbnail,
+    Tabs,
+    Tab,
+    TabHeader,
+    TabContent,
 
     IButtonProps,
     ICheckboxProps,
@@ -50,5 +72,13 @@ export {
     IOverlayProps,
     ISelectItem,
     ISelectProps,
-    IThumbnailProps
+    IThumbnailProps,
+    ITabsProps,
+    ITabProps,
+    ITabContentProps,
+    ITabHeaderProps,
+    ITab,
+
+    toaster,
+    messageBox
 }

@@ -5,11 +5,13 @@
 
 .message{width:100%;position:fixed;bottom:0px;transition-property:opacity;transition-duration:2s;opacity:1}.message.fade-out{opacity:0}.message>*{text-align:center}.message .success{background-color:green}.message .error{background-color:red}.message .info{background-color:orange}
 
+.tabs{width:100%}.tabs .bar{border-bottom:1px solid red;width:100%}.tabs .bar .header{display:inline-block;border-top:1px solid black;width:100px;cursor:pointer}.tabs .bar .header.disabled{cursor:default}.tabs .bar .header ~ .header{border-left:1px solid brown}.tabs .bar .header:first-child{border-left:1px solid black}.tabs .bar .header:last-child{border-right:1px solid black}.tabs .content .body{display:none}.tabs .content .body.active{display:block}
+
 .box-sizing,.chk-box{box-sizing:border-box}.chk-box{width:13px;height:13px;outline:1px solid black;position:relative;margin-right:0;margin-left:auto;cursor:pointer;display:inline-block}.chk-box.disabled{opacity:0.5;cursor:default}.chk-box.checked::after{content:"";background-repeat:no-repeat;width:13px;height:13px;display:block}.chk-box.checked.GreenHook::after{background-image:url(images/GreenHook.svg)}.chk-box.checked.DefaultCross::after{background-image:url(images/DefaultCross.svg)}
 
 .file-input>input{display:none}.file-input>label{display:inline-block;width:100%;cursor:pointer;text-align:center}
 
-.lbl{display:inline}
+.lbl{display:inline-block}
 
 .select{width:100%;position:relative}.select input{width:100%}.select .select-results{position:absolute;width:100%;display:none;background-color:white}.select .select-results>div:hover{background-color:lightblue;cursor:pointer}.select .select-results.open{display:block}
 

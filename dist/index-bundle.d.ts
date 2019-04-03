@@ -1,5 +1,9 @@
-import MessageBox from "./ts/components/messageBox/MessageBox";
-import Toaster from "./ts/components/Toaster";
+import MessageBox, { showOkCancel } from "./ts/components/messageBox/MessageBox";
+import Toaster, { success } from "./ts/components/Toaster";
+import Tabs from "./ts/components/tabs/Tabs";
+import Tab from "./ts/components/tabs/external/Tab";
+import TabHeader from "./ts/components/tabs/external/TabHeader";
+import TabContent from "./ts/components/tabs/external/TabContent";
 import Button from "./ts/elements/Button";
 import Checkbox, { CheckboxCrossTypes } from "./ts/elements/Checkbox";
 import FileInput from "./ts/elements/FileInput";
@@ -19,4 +23,15 @@ import { IOverlayProps } from "./ts/interfaces/IOverlayProps";
 import { ISelectItem } from "./ts/interfaces/ISelectItem";
 import { ISelectProps } from "./ts/interfaces/ISelectProps";
 import { IThumbnailProps } from "./ts/interfaces/IThumbnailProps";
-export { MessageBox, Toaster, Button, Checkbox, CheckboxCrossTypes, FileInput, If, Input, Label, Overlay, Select, Thumbnail, IButtonProps, ICheckboxProps, IFileUploadProps, IIfProps, IInputProps, ILabelProps, IOverlayProps, ISelectItem, ISelectProps, IThumbnailProps };
+import { ITabsProps } from "./ts/interfaces/tabs/ITabsProps";
+import { ITabProps } from "./ts/interfaces/tabs/ITabProps";
+import { ITabHeaderProps } from "./ts/interfaces/tabs/ITabHeaderProps";
+import { ITabContentProps } from "./ts/interfaces/tabs/ITabContentProps";
+import { ITab } from "./ts/interfaces/tabs/ITab";
+declare const toaster: {
+    success: typeof success;
+};
+declare const messageBox: {
+    showOkCancel: typeof showOkCancel;
+};
+export { MessageBox, Toaster, Button, Checkbox, CheckboxCrossTypes, FileInput, If, Input, Label, Overlay, Select, Thumbnail, Tabs, Tab, TabHeader, TabContent, IButtonProps, ICheckboxProps, IFileUploadProps, IIfProps, IInputProps, ILabelProps, IOverlayProps, ISelectItem, ISelectProps, IThumbnailProps, ITabsProps, ITabProps, ITabContentProps, ITabHeaderProps, ITab, toaster, messageBox };

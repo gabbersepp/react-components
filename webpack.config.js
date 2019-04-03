@@ -66,7 +66,7 @@ module.exports = function(env)
             ]
         },
         {
-          test: /\.(png|jpg|gif|svg)$/,
+          test: /\.(png|jpg|gif|svg|ttf)$/,
           use: [
               {
                   loader: 'file-loader',

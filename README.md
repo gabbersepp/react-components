@@ -36,6 +36,11 @@ Include following HTML code:
 
 The components are built against React v16.x. But as they are without very complexe stuff, other versions should be applicable, too.
 
+## Themes
+
+Default Theme:
+- https://github.com/gabbersepp/react-components-default-theme
+- TODO: add image
 
 ## For contributors - Running the tests
 

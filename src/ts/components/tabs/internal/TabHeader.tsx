@@ -1,10 +1,11 @@
 import * as React from "react";
+import If from "./../../../elements/If";
 
 export default class TabHeader extends React.Component<ITabsHeaderProps, {}> {
     public render(): JSX.Element {
         return (
-            <div className={`header ${this.props.active ? "active" : "inactive"} ${this.props.disabled ? "disabled" : ""}`} onClick={() => this.props.onClick()}>
-                <span>{this.props.title}</span><span>x</span>
+            <div className={`header ${this.props.allowClose ? "closeable" : ""} ${this.props.active ? "active" : "inactive"} ${this.props.disabled ? "disabled" : ""}`} onClick={() => this.props.onClick()}>
+                <span>{this.props.title}</span><If expression={this.props.allowClose}><span>x</span></If>
             </div>
         )
     }
@@ -15,4 +16,5 @@ interface ITabsHeaderProps {
     active?: boolean;
     disabled?: boolean;
     onClick: () => void;
+    allowClose?: boolean;
 }

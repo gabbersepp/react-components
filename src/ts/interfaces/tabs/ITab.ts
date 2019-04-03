@@ -4,4 +4,5 @@ export interface ITab {
     active: boolean;
     enabled: boolean;
     id: string;
+    allowClose?: boolean;
 }

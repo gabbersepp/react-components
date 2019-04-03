@@ -36,7 +36,7 @@ let items2: ISelectItem[] = [
 
 let tabs: ITab[] = [
     { title: "Hallo", id: "1", element: (<div>Hallo</div> ), active: false, enabled: true },
-    { title: "Hallo2", id: "2", element: (<div>Hallo2</div> ), active: true, enabled: true},
+    { title: "Hallo2", id: "2", element: (<div>Hallo2</div> ), active: true, enabled: true, allowClose: true },
 ]
 
 export default class TsComp extends React.Component<any, any> {
@@ -76,7 +76,7 @@ export default class TsComp extends React.Component<any, any> {
                 <Button title="Toggle tab disable" onClick={() => this.toggle("tab")}/>
                 <Tabs>
                     <Tab>
-                        <TabHeader>
+                        <TabHeader allowClose={true}>
                             Test
                         </TabHeader>
                         <TabBody>

@@ -28,7 +28,7 @@ export default class Tabs extends React.Component<ITabsProps, ITabsState> {
         return (
             <div className="tabs">
                 <div className="bar">
-                    {this.state.tabs.map(tab => <TabHeader key={tab.id + tab.active + tab.enabled} disabled={!tab.enabled} onClick={() => this.selectTab(tab)} active={tab.active} title={tab.title}/>)}
+                    {this.state.tabs.map(tab => <TabHeader allowClose={tab.allowClose} key={tab.id + tab.active + tab.enabled} disabled={!tab.enabled} onClick={() => this.selectTab(tab)} active={tab.active} title={tab.title}/>)}
                 </div>
                 <div className="content">
                     {this.state.tabs.map(tab => <TabContent key={tab.id + tab.active + tab.enabled} active={tab.active} element={tab.element}/>)}
@@ -96,6 +96,7 @@ export default class Tabs extends React.Component<ITabsProps, ITabsState> {
 
             const title: string = tabHeader.props.children;
             tab.title = title;
+            tab.allowClose = tabHeader.props.allowClose;
 
             const tabContent: any = (reactTab.props as any).children.find((x: any) => x.type === TabContentExternal);
             if (!tabContent) {

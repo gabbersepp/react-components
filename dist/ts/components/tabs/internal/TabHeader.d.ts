@@ -7,5 +7,6 @@ interface ITabsHeaderProps {
     active?: boolean;
     disabled?: boolean;
     onClick: () => void;
+    allowClose?: boolean;
 }
 export {};

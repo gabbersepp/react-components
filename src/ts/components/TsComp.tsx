@@ -12,10 +12,12 @@ import FileInput from "../elements/FileInput";
 import Toaster, { success } from "./Toaster";
 import Thumbnail from "./../elements/Thumbnail";
 import Tabs from "./tabs/Tabs";
-import { ITab } from "../interfaces/tabs/ITab";import Button from "../elements/Button";
+import { ITab } from "../interfaces/tabs/ITab";
+import Button from "../elements/Button";
 import Tab from "./tabs/external/Tab";
 import TabHeader from "./tabs/external/TabHeader";
 import TabBody from "./tabs/external/TabContent";
+import Group from "./Group";
 
 let items: ISelectItem[] = [
     { key: "1", value: "text 1"},
@@ -65,7 +67,7 @@ export default class TsComp extends React.Component<any, any> {
                 <Checkbox crossType={CheckboxCrossTypes.GreenHook} disabled={this.state.chkDisabled} checked={this.state.chkChecked}/>
                 <Select options={this.state.selectionOptions} onChange={val => this.setState({selectedValue: val.value})}/>
                 <Label value={this.state.selectedValue}/>
-                <FileInput onChange={(file: File) => this.setState({selectedValue: file.name})} title="Bitte wählen" accept={[".jpg", ".gif"]}/>
+                <FileInput onChange={(file: File) => this.setState({selectedValue: file.name})} title="Bitte wählen"/>
                 <Toaster/>
                 <button onClick={() => this.toggle("chkDisabled")}>Disable</button>
                 <button onClick={() => this.toggle("chkChecked")}>Check</button>
@@ -74,8 +76,12 @@ export default class TsComp extends React.Component<any, any> {
                 <MessageBox></MessageBox>
                 <Tabs tabs={tabs}/>
                 <Button title="Toggle tab disable" onClick={() => this.toggle("tab")}/>
+                <Group header="Header">
+                    <div>Hallo</div>
+                    <div>Test</div>
+                </Group>
                 <Tabs>
-                    <Tab>
+                    <Tab disabled={true}>
                         <TabHeader allowClose={true}>
                             Test
                         </TabHeader>

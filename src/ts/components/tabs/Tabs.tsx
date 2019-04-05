@@ -81,7 +81,8 @@ export default class Tabs extends React.Component<ITabsProps, ITabsState> {
 
         childArray.forEach((reactTab: React.ReactElement<Tab>) => {
             const tab: ITab = {
-                enabled: true,
+                enabled: !(reactTab.props as any).disabled,
+                active: (reactTab.props as any).active,
                 id: id++ + ""
             } as any;
 
@@ -108,8 +109,11 @@ export default class Tabs extends React.Component<ITabsProps, ITabsState> {
             tabs.push(tab);
         });
 
-        if (tabs.length > 0) {
-            tabs[0].active = true;
+        if (tabs.length > 0 && !tabs.find(x => x.active)) {
+            const firstEnabledTab: ITab = tabs.find(x => x.enabled);
+            if (firstEnabledTab) {
+                firstEnabledTab.active = true;
+            }
         }
 
         return tabs;

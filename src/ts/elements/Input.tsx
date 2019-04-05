@@ -1,5 +1,6 @@
 import * as React from "react";
 import { IInputProps } from "../interfaces/IInputProps";
+import "./../../style/input.scss";
 
 export default class Input extends React.Component<IInputProps, IInputState> {
     constructor(props: IInputProps) {
@@ -17,6 +18,7 @@ export default class Input extends React.Component<IInputProps, IInputState> {
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => this.onChange(e.currentTarget.value)}
                 value={this.state.value}
                 onFocus={() => this.props.onFocus ? this.props.onFocus() : null}
+                className="input"
             />
         );
     }

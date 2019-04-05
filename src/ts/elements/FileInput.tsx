@@ -4,8 +4,7 @@ import "./../../style/fileinput.scss";
 
 export default class FileInput extends React.Component<IFileUploadProps, IFileUploadState> {
     public render(): JSX.Element {
-        const accept: string[] = this.props.accept || [];
-        const acceptString: string = accept.reduce((pV: string, cV: string) => `${pV},${cV}`);
+        const acceptString: string = this.props.accept ? this.props.accept.reduce((pV: string, cV: string) => `${pV},${cV}`) : null;
 
         return (
             <div className="file-input">

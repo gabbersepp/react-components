@@ -18,6 +18,7 @@ import Label from "./ts/elements/Label";
 import Overlay from "./ts/elements/Overlay";
 import Select from "./ts/elements/Select";
 import Thumbnail from "./ts/elements/Thumbnail";
+import Group from "./ts/components/Group";
 
 //import { IIfProps } from "./ts/interfaces/IIfProps";
 import { IButtonProps } from "./ts/interfaces/IButtonProps";
@@ -35,6 +36,7 @@ import { ITabProps } from "./ts/interfaces/tabs/ITabProps";
 import { ITabHeaderProps } from "./ts/interfaces/tabs/ITabHeaderProps";
 import { ITabContentProps } from "./ts/interfaces/tabs/ITabContentProps";
 import { ITab } from "./ts/interfaces/tabs/ITab";
+import { IGroupProps } from "./ts/interfaces/IGroupProps";
 
 
 const toaster = {
@@ -62,6 +64,7 @@ export {
     Tab,
     TabHeader,
     TabContent,
+    Group,
 
     IButtonProps,
     ICheckboxProps,
@@ -78,6 +81,7 @@ export {
     ITabContentProps,
     ITabHeaderProps,
     ITab,
+    IGroupProps,
 
     toaster,
     messageBox

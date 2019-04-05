@@ -1,4 +1,8 @@
+@import "global";
+
 .thumbnail {
+    @extend .box-sizing;
+    
     img {
         width: 100px;
         height: auto;

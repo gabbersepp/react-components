@@ -1,24 +1,23 @@
+@import "global";
+
 .tabs {
+    @extend .box-sizing;
     width: 100%;
 
-    .bar {
+    .tabs-bar {
         width: 100%;
 
-        .header {
+        .tab-header {
             display: inline-block;
             border-top: 1px solid black;
             width: 100px;
             cursor: pointer;
 
-            &.active {
-                
-            }
-
-            &.disabled {
+            &.tab-header--disabled {
                 cursor: default;
             }
 
-            &~.header {
+            &~.tab-header {
                 border-left: 1px solid brown;
             }
 
@@ -31,11 +30,11 @@
         }
     }
 
-    .content {
-        .body {
+    .tabs-content {
+        .tab-body {
             display: none;
 
-            &.active {
+            &.tab-body--active {
                 display: block;
             }
         }

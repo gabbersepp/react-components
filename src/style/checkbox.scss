@@ -11,12 +11,12 @@
     cursor: pointer;
     display: inline-block;
 
-    &.disabled {
+    &.chk-box--disabled {
         opacity: 0.5;
         cursor: default;
     }
 
-    &.checked::after {
+    &.chk-box--checked::after {
         content: "";        
         background-repeat: no-repeat;
         width: 13px;
@@ -24,11 +24,11 @@
         display: block;  
     }
 
-    &.checked.GreenHook::after {
+    &.chk-box--checked.GreenHook::after {
         background-image: url("./../images/GreenHook.svg");
     }
 
-    &.checked.DefaultCross::after {
+    &.chk-box--checked.DefaultCross::after {
         background-image: url("./../images/DefaultCross.svg");
     }
 }

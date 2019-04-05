@@ -54,9 +54,9 @@ export default class MessageBox extends React.Component<{}, IMessageBoxState> {
         const html: JSX.Element = (
             <Overlay>
                 <div className="msg-box">
-                    <div className="title">{this.state.title}</div>
-                    <div className="msg">{this.state.msg}</div>
-                    <div className="buttons">
+                    <div className="msg-box-title">{this.state.title}</div>
+                    <div className="msg-box-msg">{this.state.msg}</div>
+                    <div className="msg-box-buttons">
                         {this.state.buttons.map(b => (<Button key={b.title} onClick={b.onClick} title={b.title}/>))}
                     </div>
                 </div>

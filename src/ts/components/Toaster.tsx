@@ -29,8 +29,8 @@ export default class Toaster extends React.Component<{}, IToasterState> {
     public render(): JSX.Element {
         return (
             <If expression={this.state.show}>
-                <div className={`message ${this.state.fadeOut ? "fade-out" : ""}`}>
-                    <div className={this.state.type}>
+                <div className={`message ${this.state.fadeOut ? "message--fade-out" : ""}`}>
+                    <div className={`message--${this.state.type}`}>
                         {this.state.message}
                     </div>
                 </div>

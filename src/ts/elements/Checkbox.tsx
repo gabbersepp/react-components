@@ -16,7 +16,7 @@ export default class Checkbox extends React.Component<ICheckboxProps, ICheckboxS
     public render(): JSX.Element {
         return (
             <div 
-                className={`chk-box ${this.state.disabled ? 'disabled' : ''} ${this.state.checked ? 'checked' : ''} ${this.props.crossType}`} 
+                className={`chk-box ${this.state.disabled ? 'chk-box--disabled' : ''} ${this.state.checked ? 'chk-box--checked' : ''} ${this.props.crossType}`} 
                 onClick={() => this.onClick()}/>
         )
     }

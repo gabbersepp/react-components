@@ -7,9 +7,9 @@ export default class Group extends React.Component<IGroupProps, IGroupState> {
         return (
             <div className="group">
                 <If expression={!!this.props.header}>
-                    <div className="header">{this.props.header}</div>
+                    <div className="group-header">{this.props.header}</div>
                 </If>
-                <div className="content">
+                <div className="group-content">
                     {this.props.children}
                 </div>
             </div>

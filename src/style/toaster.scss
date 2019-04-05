@@ -1,4 +1,7 @@
+@import "global";
+
 .message {
+    @extend .box-sizing;
     width: 100%;
     position: fixed;
     bottom: 0px;
@@ -6,7 +9,7 @@
     transition-duration: 2s;
     opacity: 1;
 
-    &.fade-out {
+    &.message--fade-out {
         opacity: 0;
     }
 
@@ -14,15 +17,15 @@
         text-align: center;
     }
 
-    & .success {
+    & .message--success {
         background-color: green;
     }
 
-    & .error {
+    & .message--error {
         background-color: red;
     }
 
-    & .info {
+    & .message--info {
         background-color: orange;
     }
 }

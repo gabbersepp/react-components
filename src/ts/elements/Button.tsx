@@ -12,7 +12,7 @@ export default class Button extends React.Component<IButtonProps, IButtonState> 
 
     render(): JSX.Element {
         return (
-            <div className={`btn ${this.props.type || "default"}`} onClick={() => this.onClick()}>{this.props.title}</div>
+            <div className={`btn btn--${this.props.type || "default"} ${this.props.disabled ? "btn--disabled" : ""}`} onClick={() => this.onClick()}>{this.props.title}</div>
         )
     }
 

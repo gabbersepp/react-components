@@ -1,4 +1,7 @@
+@import "global";
+
 .overlay-container {
+    @extend .box-sizing;
     display: block;
 
     .overlay {

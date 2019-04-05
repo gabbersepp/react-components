@@ -1,4 +1,8 @@
+@import "global";
+
 .file-input {
+    @extend .box-sizing;
+    
     & > input {
         display: none;
     }

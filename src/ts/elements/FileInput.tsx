@@ -5,11 +5,13 @@ import "./../../style/fileinput.scss";
 export default class FileInput extends React.Component<IFileUploadProps, IFileUploadState> {
     public render(): JSX.Element {
         const acceptString: string = this.props.accept ? this.props.accept.reduce((pV: string, cV: string) => `${pV},${cV}`) : null;
+        const date: number = new Date().getTime();
+        const fileId: string = `file-${date}`;
 
         return (
             <div className="file-input">
-                <input type="file" id="file" onChange={e => this.onChange(e.target.files)} multiple={!!this.props.multiple} accept={acceptString}></input>
-                <label htmlFor="file">{this.props.title}</label>
+                <input type="file" id={fileId} onChange={e => this.onChange(e.target.files)} multiple={!!this.props.multiple} accept={acceptString}></input>
+                <label htmlFor={fileId}>{this.props.title}</label>
             </div>
         )
     }

@@ -1,3 +1,6 @@
+@import "global";
+
 .input {
+    @extend .box-sizing;
     width: 100%;
 }

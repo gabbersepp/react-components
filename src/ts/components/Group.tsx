@@ -5,7 +5,7 @@ import If from "./../elements/If";
 export default class Group extends React.Component<IGroupProps, IGroupState> {
     public render(): JSX.Element {
         return (
-            <div className="group">
+            <div className={`group ${this.props.className || ""}`}>
                 <If expression={!!this.props.header}>
                     <div className="group-header">{this.props.header}</div>
                 </If>

@@ -5,14 +5,14 @@ import MessageBox, { showOkCancel } from "./messageBox/MessageBox";
 
 import Checkbox, { CheckboxCrossTypes } from "./../elements/Checkbox";
 import StateUtils from "../utils/StateUtils";
-import { ISelectItem } from "../interfaces/ISelectItem";
+import ISelectItem from "../interfaces/ISelectItem";
 import Select from "./../elements/Select";
 import FileInput from "../elements/FileInput";
 
 import Toaster, { success } from "./Toaster";
 import Thumbnail from "./../elements/Thumbnail";
 import Tabs from "./tabs/Tabs";
-import { ITab } from "../interfaces/tabs/ITab";
+import ITab from "../interfaces/tabs/ITab";
 import Button from "../elements/Button";
 import Tab from "./tabs/external/Tab";
 import TabHeader from "./tabs/external/TabHeader";

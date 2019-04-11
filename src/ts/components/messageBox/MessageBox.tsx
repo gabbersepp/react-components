@@ -1,5 +1,4 @@
 import * as React from "react";
-import { IMessageBoxState } from "../../interfaces/IMessageBoxState";
 import StateUtils from "../../utils/StateUtils";
 import Overlay from "../../elements/Overlay";
 import "./../../../style/messagebox.scss";
@@ -65,4 +64,11 @@ export default class MessageBox extends React.Component<{}, IMessageBoxState> {
 
         return this.state.show ? html : null;
     }
+}
+
+export interface IMessageBoxState {
+    show: boolean;
+    title: string;
+    msg: string;
+    buttons: IMsgBoxButton[];
 }

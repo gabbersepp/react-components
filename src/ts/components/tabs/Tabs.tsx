@@ -1,16 +1,15 @@
 import * as React from "react";
-import { ITabsProps } from "../../interfaces/tabs/ITabsProps";
+import ITabsProps from "../../interfaces/tabs/ITabsProps";
 import TabHeader from "./internal/TabHeader";
 import TabContent from "./internal/TabContent";
 import "./../../../style/tabs.scss";
-import { ITabsState } from "../../interfaces/tabs/ITabsState";
-import { ITab } from "../../interfaces/tabs/ITab";
+import ITab from "../../interfaces/tabs/ITab";
 import StateUtils from "./../../utils/StateUtils";
 import Tab from "./external/Tab";
 
 import TabHeaderExternal from "./external/TabHeader";
 import TabContentExternal from "./external/TabContent";
-import { ITabProps } from "../../interfaces/tabs/ITabProps";
+import ITabProps from "../../interfaces/tabs/ITabProps";
 
 export default class Tabs extends React.Component<ITabsProps, ITabsState> {
     constructor(props: ITabsProps) {
@@ -119,4 +118,8 @@ export default class Tabs extends React.Component<ITabsProps, ITabsState> {
 
         return tabs;
     }
+}
+
+export interface ITabsState {
+    tabs: ITab[];
 }

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IGroupProps } from "../interfaces/IGroupProps";
+import IGroupProps from "../interfaces/IGroupProps";
 import If from "./../elements/If";
 
 export default class Group extends React.Component<IGroupProps, {}> {

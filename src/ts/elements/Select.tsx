@@ -1,10 +1,9 @@
 import * as React from "react";
 import Input from "./Input";
-import { ISelectProps } from "../interfaces/ISelectProps";
-import { ISelectItem } from "../interfaces/ISelectItem";
+import ISelectProps from "../interfaces/ISelectProps";
+import ISelectItem from "../interfaces/ISelectItem";
 import StateUtils from "../utils/StateUtils";
 import "./../../style/select.scss";
-import { ISelectState } from "../interfaces/ISelectState";
 
 export default class Select extends React.Component<ISelectProps, ISelectState> {
 
@@ -111,4 +110,11 @@ export default class Select extends React.Component<ISelectProps, ISelectState> 
         newState.filtered = items;
         this.setState(newState);
     }
+}
+
+export interface ISelectState {
+    selectedKey: string;
+    filtered: ISelectItem[];
+    options: ISelectItem[];
+    dropDownOpened: boolean;
 }

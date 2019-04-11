@@ -1,7 +1,7 @@
 import * as React from "react";
 import If from "./If";
 import "./../../style/thumbnail.scss";
-import { IThumbnailProps } from "../interfaces/IThumbnailProps";
+import IThumbnailProps from "../interfaces/IThumbnailProps";
 import Overlay from "./Overlay";
 
 export default class Thumbnail extends React.Component<IThumbnailProps, IThumbnailState> {
@@ -32,4 +32,8 @@ export default class Thumbnail extends React.Component<IThumbnailProps, IThumbna
     private hide(): void {
         this.setState({ show: false });
     }
+}
+
+interface IThumbnailState {
+    show: boolean;
 }

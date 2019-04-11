@@ -1,4 +1,4 @@
-export interface ITab {
+export default interface ITab {
     title: string;
     element: React.ReactElement;
     active: boolean;

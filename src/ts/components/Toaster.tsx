@@ -74,3 +74,10 @@ export default class Toaster extends React.Component<{}, IToasterState> {
         this.setState({ show: false });
     }
 }
+
+interface IToasterState {
+    show: boolean;
+    message: string;
+    type: "error" | "info" | "success" | null;
+    fadeOut: boolean;
+} 

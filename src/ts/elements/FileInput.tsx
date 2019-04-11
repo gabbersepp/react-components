@@ -1,8 +1,8 @@
 import * as React from "react";
-import { IFileUploadProps } from "../interfaces/IFileUploadProps";
+import IFileUploadProps from "../interfaces/IFileUploadProps";
 import "./../../style/fileinput.scss";
 
-export default class FileInput extends React.Component<IFileUploadProps, IFileUploadState> {
+export default class FileInput extends React.Component<IFileUploadProps, {}> {
     public render(): JSX.Element {
         const acceptString: string = this.props.accept ? this.props.accept.reduce((pV: string, cV: string) => `${pV},${cV}`) : null;
         const date: number = new Date().getTime();

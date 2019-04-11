@@ -18,6 +18,10 @@ import Tab from "./tabs/external/Tab";
 import TabHeader from "./tabs/external/TabHeader";
 import TabBody from "./tabs/external/TabContent";
 import Group from "./Group";
+import Collapsable from "./collapsable/Collapsable";
+import CollapsableHeader from "./collapsable/CollapsableHeader";
+import CollapsableContent from "./collapsable/CollapsableContent";
+
 
 let items: ISelectItem[] = [
     { key: "1", value: "text 1"},
@@ -104,6 +108,15 @@ export default class TsComp extends React.Component<any, any> {
                     </Tab>
                 </Tabs>
                 <Button onClick={() => this.toggle("tabDisabled")} title="tab disable toggle"/>
+
+                <Collapsable>
+                    <CollapsableHeader>Header</CollapsableHeader>
+                    <CollapsableContent>
+                        <div>
+                            Hallo
+                        </div>
+                    </CollapsableContent>
+                </Collapsable>
             </div>
         )
     }

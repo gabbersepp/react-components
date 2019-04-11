@@ -1,0 +1,12 @@
+.collapsable {
+
+    .collapsable-header {
+        cursor: pointer;
+    }
+
+    .collapsable-content {
+        &.collapsable-content--collapsed {
+            display: none;
+        }
+    }
+}

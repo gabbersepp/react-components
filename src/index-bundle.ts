@@ -7,6 +7,10 @@ import Tabs from "./ts/components/tabs/Tabs";
 import Tab from "./ts/components/tabs/external/Tab";
 import TabHeader from "./ts/components/tabs/external/TabHeader";
 import TabContent from "./ts/components/tabs/external/TabContent";
+import Collapsable from "./ts/components/collapsable/Collapsable";
+import CollapsableHeader from "./ts/components/collapsable/CollapsableHeader";
+import CollapsableContent from "./ts/components/collapsable/CollapsableContent";
+
 
 // elements
 import Button from "./ts/elements/Button";
@@ -37,7 +41,9 @@ import { ITabHeaderProps } from "./ts/interfaces/tabs/ITabHeaderProps";
 import { ITabContentProps } from "./ts/interfaces/tabs/ITabContentProps";
 import { ITab } from "./ts/interfaces/tabs/ITab";
 import { IGroupProps } from "./ts/interfaces/IGroupProps";
-
+import ICollapsableProps from "./ts/interfaces/collapsable/ICollapsableProps";
+import ICollapsableHeaderProps from "./ts/interfaces/collapsable/ICollapsableHeaderProps";
+import ICollapsableContentProps from "./ts/interfaces/collapsable/ICollapsableContentProps";
 
 const toaster = {
     success
@@ -65,6 +71,9 @@ export {
     TabHeader,
     TabContent,
     Group,
+    Collapsable,
+    CollapsableHeader,
+    CollapsableContent,
 
     IButtonProps,
     ICheckboxProps,
@@ -82,6 +91,9 @@ export {
     ITabHeaderProps,
     ITab,
     IGroupProps,
+    ICollapsableProps,
+    ICollapsableHeaderProps,
+    ICollapsableContentProps,
 
     toaster,
     messageBox

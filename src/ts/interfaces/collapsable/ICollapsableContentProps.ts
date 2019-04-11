@@ -1,4 +1,4 @@
 export default interface ICollapsableContentProps {
-    children: React.ReactElement | React.ReactElement[];
+    children: React.ReactElement | React.ReactElement[] | string;
     collapsed?: boolean;
 }

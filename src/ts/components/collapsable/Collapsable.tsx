@@ -31,7 +31,7 @@ export default class Collapsable extends React.Component<ICollapsableProps, ICol
         const children: React.ReactElement[] = [header, content];
 
         return (
-            <div className={`collapsable ${this.props.className || ""}`}>
+            <div className={`collapsable ${this.props.className || ""} ${this.state.collapsed ? "collapsable--collapsed" : ""}`}>
                 {children}
             </div>
         )

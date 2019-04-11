@@ -51,7 +51,8 @@ export default class TsComp extends React.Component<any, any> {
             overlay: false,
             selectedValue: "",
             selectionOptions: items,
-            tab: false
+            tab: false,
+            tabDisabled: false
         }
     }
 
@@ -81,9 +82,9 @@ export default class TsComp extends React.Component<any, any> {
                     <div>Test</div>
                 </Group>
                 <Tabs>
-                    <Tab disabled={true}>
+                    <Tab disabled={this.state.tabDisabled} id="tab1">
                         <TabHeader allowClose={true}>
-                            Test
+                            {`${this.state.tabDisabled} - Test`}
                         </TabHeader>
                         <TabBody>
                             <div>
@@ -91,7 +92,7 @@ export default class TsComp extends React.Component<any, any> {
                             </div>
                         </TabBody>
                     </Tab>
-                    <Tab>
+                    <Tab id="tab2">
                         <TabHeader>
                             Test2
                         </TabHeader>
@@ -102,6 +103,7 @@ export default class TsComp extends React.Component<any, any> {
                         </TabBody>
                     </Tab>
                 </Tabs>
+                <Button onClick={() => this.toggle("tabDisabled")} title="tab disable toggle"/>
             </div>
         )
     }

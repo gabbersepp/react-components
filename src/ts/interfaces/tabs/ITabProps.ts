@@ -5,4 +5,5 @@ export interface ITabProps {
     children?: (React.ReactElement<TabBody> | React.ReactElement<TabContent>)[];
     disabled?: boolean;
     active?: boolean;
+    id: string;
 }

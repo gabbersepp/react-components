@@ -10,6 +10,7 @@ import Tab from "./external/Tab";
 
 import TabHeaderExternal from "./external/TabHeader";
 import TabContentExternal from "./external/TabContent";
+import { ITabProps } from "../../interfaces/tabs/ITabProps";
 
 export default class Tabs extends React.Component<ITabsProps, ITabsState> {
     constructor(props: ITabsProps) {
@@ -20,7 +21,7 @@ export default class Tabs extends React.Component<ITabsProps, ITabsState> {
         }
 
         this.state = {
-            tabs: props.tabs || this.buildTabsFromProps() || []
+            tabs: this.buildTabsFromProps(props) || []
         }
     }
 
@@ -38,21 +39,21 @@ export default class Tabs extends React.Component<ITabsProps, ITabsState> {
     }
 
     public componentDidUpdate(prevProps: ITabsProps) {
-        if (prevProps.children) {
-            // TODO: fix
-            return;
-        }
-
-        const update: boolean = prevProps.tabs !== this.props.tabs ||
-            prevProps.tabs.length !== this.props.tabs.length ||
-            prevProps.tabs.filter(t => this.props.tabs.find(t2 => t2.id === t.id && 
-                t2.active === t.active && t2.enabled === t.enabled)).length !== prevProps.tabs.length;
-
-        if (update) {
+        const tabsFromOldProps: ITab[] = this.buildTabsFromProps(prevProps);
+        const tabsFromNewProps: ITab[] = this.buildTabsFromProps(this.props);
+        
+        if (this.checkTabRefreshment(tabsFromOldProps, tabsFromNewProps)) {
             const newState: ITabsState = StateUtils.newFromObj(this.state);
-            newState.tabs = this.props.tabs;
+            newState.tabs = tabsFromNewProps;
             this.setState(newState);
         }
+    }
+
+    private checkTabRefreshment(oldTabs: ITab[], newTabs: ITab[]): boolean {
+        const update: boolean = oldTabs.length !== newTabs.length ||
+            oldTabs.filter(t => newTabs.find(t2 => t2.id === t.id && 
+                t2.active === t.active && t2.enabled === t.enabled)).length !== oldTabs.length;
+        return update;
     }
 
     public selectTab(tab: ITab) {
@@ -63,27 +64,27 @@ export default class Tabs extends React.Component<ITabsProps, ITabsState> {
         }
     }
 
-    private buildTabsFromProps(): ITab[] {
-        if (this.props.tabs) {
-            return this.props.tabs;
+    private buildTabsFromProps(props: ITabsProps): ITab[] {
+        if (props.tabs) {
+            return props.tabs;
         }
 
         let childArray: any[] = [];
 
-        if (Array.isArray(this.props.children)) {
-            childArray = this.props.children;
+        if (Array.isArray(props.children)) {
+            childArray = props.children;
         } else {
-            childArray.push(this.props.children);
+            childArray.push(props.children);
         }
 
         const tabs: ITab[] = [];
         let id: number = 0;
 
-        childArray.forEach((reactTab: React.ReactElement<Tab>) => {
+        childArray.forEach((reactTab: React.ReactElement<ITabProps>) => {
             const tab: ITab = {
-                enabled: !(reactTab.props as any).disabled,
-                active: (reactTab.props as any).active,
-                id: id++ + ""
+                enabled: !reactTab.props.disabled,
+                active: reactTab.props.active,
+                id: reactTab.props.id
             } as any;
 
             if (!(reactTab.type === Tab)) {

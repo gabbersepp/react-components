@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "build": "webpack --env prod",
-    "start": "webpack-dev-server --open --env dev",
+    "start": "webpack-dev-server --open --hot --env dev",
     "clean": "node node_modules/rimraf/bin.js build/out build/coverage test/TestMain.js",
     "compile:dev": "node node_modules/webpack/bin/webpack.js --env dev",
     "compile:prod": "node node_modules/webpack/bin/webpack.js -p --env prod",

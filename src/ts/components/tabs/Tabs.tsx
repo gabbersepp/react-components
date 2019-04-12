@@ -28,10 +28,10 @@ export default class Tabs extends React.Component<ITabsProps, ITabsState> {
         return (
             <div className="tabs">
                 <div className="tabs-bar">
-                    {this.state.tabs.map(tab => <TabHeader allowClose={tab.allowClose} key={tab.id + tab.active + tab.enabled} disabled={!tab.enabled} onClick={() => this.selectTab(tab)} active={tab.active} title={tab.title}/>)}
+                    {this.state.tabs.map(tab => <TabHeader allowClose={tab.allowClose} key={tab.id} disabled={!tab.enabled} onClick={() => this.selectTab(tab)} active={tab.active} title={tab.title}/>)}
                 </div>
                 <div className="tabs-content">
-                    {this.state.tabs.map(tab => <TabContent key={tab.id + tab.active + tab.enabled} active={tab.active} element={tab.element}/>)}
+                    {this.state.tabs.map(tab => <TabContent key={tab.id} active={tab.active} element={tab.element}/>)}
                 </div>
             </div>
         )

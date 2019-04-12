@@ -41,8 +41,8 @@ let items2: ISelectItem[] = [
 ]
 
 let tabs: ITab[] = [
-    { title: "Hallo", id: "1", element: (<div>Hallo</div> ), active: false, enabled: true },
-    { title: "Hallo2", id: "2", element: (<div>Hallo2</div> ), active: true, enabled: true, allowClose: true },
+    { title: "Hallo", id: "1", element: (<div>Hallo <Input onChange={() => {}} /></div> ), active: false, enabled: true },
+    { title: "Hallo2", id: "2", element: (<div>Hallo2 <Input onChange={() => {}} /></div> ), active: true, enabled: true, allowClose: true },
 ]
 
 export default class TsComp extends React.Component<any, any> {
@@ -94,6 +94,7 @@ export default class TsComp extends React.Component<any, any> {
                             <div>
                                 <Button title="button von tab 1" onClick={() => {}}/>
                             </div>
+                            <Input onChange={() => {}} />
                         </TabBody>
                     </Tab>
                     <Tab id="tab2">
@@ -103,7 +104,7 @@ export default class TsComp extends React.Component<any, any> {
                         <TabBody>
                             <Button title="button von tab 2" onClick={() => {}}/>
                             <Button title="button von tab 2" onClick={() => {}}/>
-                            
+                            <Input onChange={() => {}} />
                         </TabBody>
                     </Tab>
                 </Tabs>

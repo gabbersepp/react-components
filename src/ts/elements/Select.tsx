@@ -23,7 +23,7 @@ export default class Select extends React.Component<ISelectProps, ISelectState> 
 
     public render(): JSX.Element {
         return (
-            <div className="select" ref={this.selectRef}>
+                <div className={`select ${this.props.className || ""}`} ref={this.selectRef}>
                 <Input onFocus={() => this.openDropdown()} value={this.getValue(this.state.selectedKey)} onChange={(val) => this.filter(val)}/>
                 <div className={`select-results ${this.state.dropDownOpened ? "select-results--open" : ""}`}>
                     {this.state.filtered.map(i => (<div tabIndex={0} className="select-item" key={i.key} onClick={(e) => this.select(i, e.currentTarget)}>{i.value}</div>))}

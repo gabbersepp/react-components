@@ -45,12 +45,19 @@ import ICollapsableProps from "./ts/interfaces/collapsable/ICollapsableProps";
 import ICollapsableHeaderProps from "./ts/interfaces/collapsable/ICollapsableHeaderProps";
 import ICollapsableContentProps from "./ts/interfaces/collapsable/ICollapsableContentProps";
 
+// utils
+import StateUtils from "./ts/utils/StateUtils";
+
 const toaster = {
     success
 }
 
 const messageBox = {
     showOkCancel
+}
+
+const utils = {
+    StateUtils
 }
 
 export {
@@ -96,5 +103,6 @@ export {
     ICollapsableContentProps,
 
     toaster,
-    messageBox
+    messageBox,
+    utils
 }

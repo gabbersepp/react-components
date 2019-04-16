@@ -15,6 +15,7 @@ interface ITabContentProps {
     active?: boolean;
     element?: React.ReactElement;
     children?: React.ReactElement | React.ReactElement[];
+    refreshProperty?: any;
 }
 
 interface ITabContentState {

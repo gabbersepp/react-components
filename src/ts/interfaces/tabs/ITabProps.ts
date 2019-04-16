@@ -6,4 +6,5 @@ export default interface ITabProps {
     disabled?: boolean;
     active?: boolean;
     id: string;
+    refreshProperty?: any;
 }

@@ -11,7 +11,8 @@ export default class Collapsable extends React.Component<ICollapsableProps, ICol
     constructor(props: ICollapsableProps) {
         super(props);
         this.state = {
-            collapsed: props.collapsed
+            collapsed: props.collapsed,
+            keepOpen: props.keepOpen
         }
     }
     
@@ -21,9 +22,9 @@ export default class Collapsable extends React.Component<ICollapsableProps, ICol
 
         const newHeaderProps = StateUtils.newFromObj(header.props);
         const newContentProps = StateUtils.newFromObj(content.props);
-        newHeaderProps.collapsed = this.state.collapsed;
+        newHeaderProps.collapsed = this.state.collapsed && !this.state.keepOpen;
         newHeaderProps.onToggle = this.onToggle.bind(this, newHeaderProps.onToggle);
-        newContentProps.collapsed = this.state.collapsed;
+        newContentProps.collapsed = this.state.collapsed && !this.state.keepOpen;
         
         header = React.cloneElement(header, newHeaderProps);            
         content = React.cloneElement(content, newContentProps);
@@ -37,7 +38,17 @@ export default class Collapsable extends React.Component<ICollapsableProps, ICol
         )
     }
 
+    public componentDidUpdate(prevProps: ICollapsableProps) {
+        if (prevProps.keepOpen !== this.props.keepOpen) {
+            this.setState(StateUtils.setProp(this.state, "keepOpen", this.props.keepOpen));
+        }
+    }
+
     private onToggle(additionalFunction: (collapsed: boolean) => void): void {
+        if (this.state.keepOpen) {
+            return;
+        }
+
         const newState: ICollapsableState = StateUtils.newFromObj(this.state);
         newState.collapsed = !newState.collapsed;
         this.setState(newState);
@@ -49,5 +60,6 @@ export default class Collapsable extends React.Component<ICollapsableProps, ICol
 }
 
 interface ICollapsableState {
-    collapsed: boolean
+    collapsed: boolean;
+    keepOpen: boolean;
 }

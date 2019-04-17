@@ -56,7 +56,8 @@ export default class TsComp extends React.Component<any, any> {
             selectedValue: "",
             selectionOptions: items,
             tab: false,
-            tabDisabled: false
+            tabDisabled: false,
+            tabLabelText: ""
         }
     }
 
@@ -79,7 +80,7 @@ export default class TsComp extends React.Component<any, any> {
                 <button onClick={() => showOkCancel("hallo", "msg").then(() => alert("ok"))}>Overlay</button>
                 <button onClick={() => this.setState({ selectionOptions: items2 })}>Change options</button>
                 <MessageBox></MessageBox>
-                <Tabs tabs={tabs}/>
+                {/*<Tabs tabs={tabs}/>*/}
                 <Button title="Toggle tab disable" onClick={() => this.toggle("tab")}/>
                 <Group header="Header">
                     <div>Hallo</div>
@@ -94,17 +95,17 @@ export default class TsComp extends React.Component<any, any> {
                             <div>
                                 <Button title="button von tab 1" onClick={() => {}}/>
                             </div>
-                            <Input onChange={() => {}} />
                         </TabBody>
                     </Tab>
-                    <Tab id="tab2">
+                    <Tab id="tab2" refreshProperty={this.state.tabLabelText.length}>
                         <TabHeader>
                             Test2
                         </TabHeader>
                         <TabBody>
+                            <Label value={this.state.tabLabelText}/>
                             <Button title="button von tab 2" onClick={() => {}}/>
                             <Button title="button von tab 2" onClick={() => {}}/>
-                            <Input onChange={() => {}} />
+                            <Input onChange={(val: string) => this.setState(StateUtils.setProp(this.state, "tabLabelText", val))} />
                         </TabBody>
                     </Tab>
                 </Tabs>

@@ -58,7 +58,9 @@
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "jsdom-global": "^3.0.2"
+  },
   "peerDependencies": {
     "react": "^16.8.4",
     "react-dom": "^16.8.4"

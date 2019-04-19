@@ -1,7 +1,7 @@
 # React Components
 
 [![NPM](https://img.shields.io/npm/v/jb-react-components.svg)](https://www.npmjs.com/package/jb-react-components)
-![David](https://david-dm.org/gabbersepp/react-components.svg) ![David](https://david-dm.org/gabbersepp/react-components/dev-status.svg)
+![David](https://david-dm.org/gabbersepp/react-components.svg) ![David](https://david-dm.org/gabbersepp/react-components/dev-status.svg) [![Build Status](https://travis-ci.org/gabbersepp/react-components.svg?branch=master)](https://travis-ci.org/gabbersepp/react-components)
 
 After starting development of React apps, I started to do the same things over and over again. I decided to put all those stuff into this public library.  
 

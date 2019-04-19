@@ -9,7 +9,7 @@ describe("Checkbox", () => {
         wrapper.find("div").hasClass("chk-box");
         expect(wrapper.find("div").hasClass("chk-box--checked")).not.toBeTruthy();
         wrapper.simulate("click");
-        expect(wrapper.hasClass("chk-box--checked")).toBeTruthy();
+        expect(wrapper.hasClass("1chk-box--checked")).toBeTruthy();
         expect(onChangeFn).toHaveBeenCalledWith(true);
     })
 })

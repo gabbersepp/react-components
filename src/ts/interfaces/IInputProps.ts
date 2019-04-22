@@ -3,4 +3,5 @@ export default interface IInputProps {
     value?: string;
     onChange: (val: string) => void;
     onFocus?: () => void;
+    className?: string;
 }

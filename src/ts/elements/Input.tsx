@@ -18,7 +18,7 @@ export default class Input extends React.Component<IInputProps, IInputState> {
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => this.onChange(e.currentTarget.value)}
                 value={this.state.value}
                 onFocus={() => this.props.onFocus ? this.props.onFocus() : null}
-                className="input"
+                className={`input ${this.props.className || ""}`}
             />
         );
     }

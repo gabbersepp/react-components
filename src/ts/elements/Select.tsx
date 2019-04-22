@@ -11,8 +11,8 @@ export default class Select extends React.Component<ISelectProps, ISelectState> 
         super(props);
         this.state = {
             selectedKey: props.selectedKey || "",
-            filtered: props.options || [],
-            options: props.options || [],
+            filtered: [].concat(props.options || []),
+            options: [].concat(props.options || []),
             dropDownOpened: false
         }
         this.fetchBlur = this.fetchBlur.bind(this);
@@ -61,10 +61,11 @@ export default class Select extends React.Component<ISelectProps, ISelectState> 
     }
 
     public componentDidUpdate(prevProps: ISelectProps) {
-        if (prevProps.options !== this.props.options) {
+        if (prevProps.options !== this.props.options ||
+                prevProps.options.length !== this.props.options.length) {
             const newState: ISelectState = StateUtils.newFromObj(this.state);
-            newState.options = this.props.options;
-            newState.filtered = this.props.options;
+            newState.options = [].concat(this.props.options);
+            newState.filtered = [].concat(this.props.options);
             this.setState(newState);
         }
     }

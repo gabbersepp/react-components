@@ -1,7 +1,7 @@
 import * as React from "react";
-import { ISelectProps } from "../interfaces/ISelectProps";
+import ISelectProps from "../interfaces/ISelectProps";
+import ISelectItem from "../interfaces/ISelectItem";
 import "./../../style/select.scss";
-import { ISelectState } from "../interfaces/ISelectState";
 export default class Select extends React.Component<ISelectProps, ISelectState> {
     constructor(props: ISelectProps);
     private selectRef;
@@ -15,4 +15,10 @@ export default class Select extends React.Component<ISelectProps, ISelectState> 
     private select;
     private getValue;
     private filter;
+}
+export interface ISelectState {
+    selectedKey: string;
+    filtered: ISelectItem[];
+    options: ISelectItem[];
+    dropDownOpened: boolean;
 }

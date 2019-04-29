@@ -1,5 +1,5 @@
 /// <reference types="react" />
-export interface IOverlayProps {
+export default interface IOverlayProps {
     children: JSX.Element | JSX.Element[] | string;
     onClick?: () => void;
 }

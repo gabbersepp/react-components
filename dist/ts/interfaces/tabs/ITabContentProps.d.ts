@@ -1,4 +1,4 @@
 /// <reference types="react" />
-export interface ITabContentProps {
+export default interface ITabContentProps {
     children: React.ReactElement | React.ReactElement[];
 }

@@ -11,3 +11,10 @@ export default class Toaster extends React.Component<{}, IToasterState> {
     private triggerFadeOut;
     private triggerDisable;
 }
+interface IToasterState {
+    show: boolean;
+    message: string;
+    type: "error" | "info" | "success" | null;
+    fadeOut: boolean;
+}
+export {};

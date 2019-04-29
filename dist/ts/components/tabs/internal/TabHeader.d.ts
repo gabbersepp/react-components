@@ -8,5 +8,6 @@ interface ITabsHeaderProps {
     disabled?: boolean;
     onClick: () => void;
     allowClose?: boolean;
+    refreshProperty?: any;
 }
 export {};

@@ -1,3 +1,3 @@
-export interface IThumbnailProps {
+export default interface IThumbnailProps {
     src: string;
 }

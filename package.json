@@ -21,16 +21,11 @@
     "LICENSE.md"
   ],
   "scripts": {
-    "build": "webpack --env prod",
     "start": "webpack-dev-server --open --hot --env dev",
-    "clean": "node node_modules/rimraf/bin.js build/out build/coverage test/TestMain.js",
     "compile:dev": "node node_modules/webpack/bin/webpack.js --env dev",
     "compile:prod": "node node_modules/webpack/bin/webpack.js -p --env prod",
     "compile": "npm run clean && npm run compile:dev && npm run compile:prod",
-    "prepare-tests": "npm run compile && tsc --project tsconfig.test.json && node build/scripts/generate-test.js",
-    "test": "jest",
-    "lint": "node node_modules/tslint/bin/tslint -c tslint.json --project tsconfig.json -t verbose -o build/out/tslint.txt",
-    "dist": "npm run compile && node build/scripts/prepublish.js"
+    "test": "jest"
   },
   "devDependencies": {
     "@types/enzyme": "^3.9.1",

@@ -4,7 +4,7 @@ class EventQueue {
 
     public queue(fn: () => any, ms: number): void {
         this.clear(fn);
-        const handle: number = setTimeout(fn, ms);
+        const handle: number = window.setTimeout(fn, ms);
         this.functions.push(fn);
         this.handles.push(handle);
     }

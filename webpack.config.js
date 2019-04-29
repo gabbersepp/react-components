@@ -54,7 +54,10 @@ module.exports = function(env)
           test: /\.(ts|tsx)$/,
           exclude: /node_modules/,
           use: {
-            loader: "ts-loader"
+            loader: "ts-loader",
+            options: {
+              configFile: dev ? 'tsconfig.json' : 'tsconfig.prod.json'
+            }
           }
         },
         {

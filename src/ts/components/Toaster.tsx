@@ -10,6 +10,10 @@ export function success(msg: string) {
     instance.show(msg, "success");
 }
 
+export function error(msg: string) {
+    instance.show(msg, "error");
+}
+
 export default class Toaster extends React.Component<{}, IToasterState> {
     constructor(props: {}) {
         super(props);

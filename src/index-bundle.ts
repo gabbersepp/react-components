@@ -2,7 +2,7 @@
 
 // components
 import MessageBox, { showOkCancel } from "./ts/components/messageBox/MessageBox";
-import Toaster, { success } from "./ts/components/Toaster";
+import Toaster, { success, error } from "./ts/components/Toaster";
 import Tabs from "./ts/components/tabs/Tabs";
 import Tab from "./ts/components/tabs/external/Tab";
 import TabHeader from "./ts/components/tabs/external/TabHeader";
@@ -49,7 +49,7 @@ import ICollapsableContentProps from "./ts/interfaces/collapsable/ICollapsableCo
 import StateUtils from "./ts/utils/StateUtils";
 
 const toaster = {
-    success
+    success, error
 }
 
 const messageBox = {

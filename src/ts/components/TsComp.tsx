@@ -68,7 +68,7 @@ export default class TsComp extends React.Component<any, any> {
         return (
             <div>
                 <Label value={this.state.value}/>
-                <Input onChange={(v: string) => this.setState({value: v})}/>
+                <Input onChange={(v: string) => this.setState({value: v})} validator={(val: string) => val.length > 10}/>
                 <Checkbox crossType={CheckboxCrossTypes.DefaultCross} disabled={this.state.chkDisabled} checked={this.state.chkChecked}/>
                 <Checkbox crossType={CheckboxCrossTypes.GreenHook} disabled={this.state.chkDisabled} checked={this.state.chkChecked}/>
                 <Select options={this.state.selectionOptions} onChange={val => this.setState({selectedValue: val.value})}/>

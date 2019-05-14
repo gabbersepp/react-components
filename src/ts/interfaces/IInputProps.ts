@@ -4,4 +4,5 @@ export default interface IInputProps {
     onChange: (val: string) => void;
     onFocus?: () => void;
     className?: string;
+    validator?: (val: string) => boolean;
 }

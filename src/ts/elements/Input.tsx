@@ -1,13 +1,15 @@
 import * as React from "react";
 import IInputProps from "../interfaces/IInputProps";
 import "./../../style/input.scss";
+import StateUtils from "../utils/StateUtils";
 
 export default class Input extends React.Component<IInputProps, IInputState> {
     constructor(props: IInputProps) {
         super(props);
 
         this.state = {
-            value: props.value || ""
+            value: props.value || "",
+            isValid: props.validator ? props.validator(props.value || "") : true
         }
     }
 
@@ -18,7 +20,7 @@ export default class Input extends React.Component<IInputProps, IInputState> {
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => this.onChange(e.currentTarget.value)}
                 value={this.state.value}
                 onFocus={() => this.props.onFocus ? this.props.onFocus() : null}
-                className={`input ${this.props.className || ""}`}
+                className={`input ${this.props.className || ""} ${!this.state.isValid ? "input--invalid" : ""}`}
             />
         );
     }
@@ -30,8 +32,16 @@ export default class Input extends React.Component<IInputProps, IInputState> {
     }
 
     private onChange(val: string) {
-        this.setState({ value: val });
-        
+        let newState: IInputState = StateUtils.newFromObj(this.state);
+        newState.isValid = true;
+
+        if (this.props.validator) {
+            newState.isValid = this.props.validator(val);
+        }
+
+        this.setState(newState);
+        newState.value = val;
+    
         if (this.props.onChange) {
             this.props.onChange(val);
         }
@@ -40,4 +50,5 @@ export default class Input extends React.Component<IInputProps, IInputState> {
 
 interface IInputState {
     value: string;
+    isValid: boolean;
 }

@@ -81,7 +81,7 @@ export default class TsComp extends React.Component<any, any> {
                 <button onClick={() => this.setState({ selectionOptions: items2 })}>Change options</button>
                 <MessageBox></MessageBox>
                 {/*<Tabs tabs={tabs}/>*/}
-                <Button title="Toggle tab disable" onClick={() => this.toggle("tab")}/>
+                <Button title="Toggle tab disable" onClick={() => this.toggle("tab")}  disabled={this.state.chkDisabled}/>
                 <Group header="Header">
                     <div>Hallo</div>
                     <div>Test</div>
@@ -109,7 +109,7 @@ export default class TsComp extends React.Component<any, any> {
                         </TabBody>
                     </Tab>
                 </Tabs>
-                <Button onClick={() => this.toggle("tabDisabled")} title="tab disable toggle"/>
+                <Button onClick={() => this.toggle("tabDisabled")} title="tab disable toggle"   disabled={this.state.chkDisabled}/>
 
                 <Collapsable>
                     <CollapsableHeader>Header</CollapsableHeader>

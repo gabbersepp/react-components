@@ -13,4 +13,8 @@
         cursor: pointer;
         text-align: center;
     }
+
+    &.file-input--invalid {
+        border: 1px red solid;
+    }
 }

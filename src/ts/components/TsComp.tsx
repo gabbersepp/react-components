@@ -73,7 +73,8 @@ export default class TsComp extends React.Component<any, any> {
                 <Checkbox crossType={CheckboxCrossTypes.GreenHook} disabled={this.state.chkDisabled} checked={this.state.chkChecked}/>
                 <Select options={this.state.selectionOptions} onChange={val => this.setState({selectedValue: val.value})}/>
                 <Label value={this.state.selectedValue}/>
-                <FileInput onChange={(file: File) => this.setState({selectedValue: file.name})} title="Bitte wählen"/>
+                <FileInput onChange={(file: File) => this.setState({selectedValue: file.name})} title="Bitte wählen" 
+                    validator={(file: File | File[]) => !!file}/>
                 <Toaster/>
                 <button onClick={() => this.toggle("chkDisabled")}>Disable</button>
                 <button onClick={() => this.toggle("chkChecked")}>Check</button>

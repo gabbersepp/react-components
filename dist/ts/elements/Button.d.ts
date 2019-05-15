@@ -5,6 +5,7 @@ export default class Button extends React.Component<IButtonProps, IButtonState> 
     constructor(props: IButtonProps);
     render(): JSX.Element;
     private onClick;
+    componentDidUpdate(prevProps: IButtonProps): void;
 }
 interface IButtonState {
     disabled?: boolean;

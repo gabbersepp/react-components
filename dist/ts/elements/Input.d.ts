@@ -9,5 +9,6 @@ export default class Input extends React.Component<IInputProps, IInputState> {
 }
 interface IInputState {
     value: string;
+    isValid: boolean;
 }
 export {};

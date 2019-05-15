@@ -3,4 +3,5 @@ export default interface IFileUploadProps {
     onChange: (files: File[] | File) => void;
     multiple?: boolean;
     title: string;
+    validator?: (val: File | File[]) => boolean;
 }

@@ -18,7 +18,7 @@
 
 .box-sizing,.lbl{box-sizing:border-box}.lbl{display:inline-block}
 
-.select{width:100%;position:relative}.select input{width:100%}.select .select-results{position:absolute;width:100%;display:none;background-color:white}.select .select-results>div:hover{background-color:lightblue;cursor:pointer}.select .select-results.select-results--open{display:block}
+.select{width:100%;position:relative}.select.select--invalid{border:1px solid red}.select input{width:100%}.select .select-results{position:absolute;width:100%;display:none;background-color:white}.select .select-results>div:hover{background-color:lightblue;cursor:pointer}.select .select-results.select-results--open{display:block}
 
 .box-sizing,.thumbnail{box-sizing:border-box}.thumbnail img{width:100px;height:auto;cursor:pointer}.thumbnail .overlay-container img{width:auto;height:auto}.thumbnail .overlay-container img:hover ~ span{display:inline}.thumbnail .overlay-container span{display:none;position:absolute;right:0;background-color:grey;border-radius:50%;padding:0.2rem;background-image:url(images/DefaultCross.svg);width:30px;height:30px;background-repeat:no-repeat;background-position:center;cursor:pointer}.thumbnail .overlay-container span:hover{display:inline}.thumbnail .overlay-container .overlay-content>div{position:relative}
 

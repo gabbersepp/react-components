@@ -4,4 +4,5 @@ export default interface ISelectProps {
     options: ISelectItem[];
     onChange: (selected: ISelectItem) => void;
     className?: string;
+    validator?: (val: string) => boolean;
 }

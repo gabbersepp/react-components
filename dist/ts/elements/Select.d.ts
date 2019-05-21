@@ -21,4 +21,5 @@ export interface ISelectState {
     filtered: ISelectItem[];
     options: ISelectItem[];
     dropDownOpened: boolean;
+    isValid: boolean;
 }

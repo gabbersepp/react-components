@@ -1,6 +1,6 @@
 {
   "name": "jb-react-components",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "A collection of different React components.",
   "main": "dist/jb-react-components.js",
   "typings": "dist/index-bundle.d.ts",

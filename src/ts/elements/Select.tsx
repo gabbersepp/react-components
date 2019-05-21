@@ -13,7 +13,8 @@ export default class Select extends React.Component<ISelectProps, ISelectState> 
             selectedKey: props.selectedKey || "",
             filtered: [].concat(props.options || []),
             options: [].concat(props.options || []),
-            dropDownOpened: false
+            dropDownOpened: false,
+            isValid: props.validator ? props.validator(props.selectedKey || "") : true
         }
         this.fetchBlur = this.fetchBlur.bind(this);
         this.selectRef = React.createRef();
@@ -23,7 +24,7 @@ export default class Select extends React.Component<ISelectProps, ISelectState> 
 
     public render(): JSX.Element {
         return (
-                <div className={`select ${this.props.className || ""}`} ref={this.selectRef}>
+                <div className={`select ${this.props.className || ""} ${!this.state.isValid ? "select--invalid" : ""}`} ref={this.selectRef}>
                 <Input onFocus={() => this.openDropdown()} value={this.getValue(this.state.selectedKey)} onChange={(val) => this.filter(val)}/>
                 <div className={`select-results ${this.state.dropDownOpened ? "select-results--open" : ""}`}>
                     {this.state.filtered.map(i => (<div tabIndex={0} className="select-item" key={i.key} onClick={(e) => this.select(i, e.currentTarget)}>{i.value}</div>))}
@@ -82,8 +83,14 @@ export default class Select extends React.Component<ISelectProps, ISelectState> 
     }
 
     private select(item: ISelectItem, e: HTMLDivElement): void {
+        let newState: ISelectState = StateUtils.newFromObj(this.state);
+        newState.isValid = true;
+
+        if (this.props.validator) {
+            newState.isValid = this.props.validator(item ? item.key : "");
+        }
+
         this.props.onChange(item);
-        const newState: ISelectState = StateUtils.newFromObj(this.state);
         newState.selectedKey = item.key;
         this.closeDropdown(newState);
     }
@@ -118,4 +125,5 @@ export interface ISelectState {
     filtered: ISelectItem[];
     options: ISelectItem[];
     dropDownOpened: boolean;
+    isValid: boolean;
 }

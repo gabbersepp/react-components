@@ -71,7 +71,7 @@ export default class TsComp extends React.Component<any, any> {
                 <Input onChange={(v: string) => this.setState({value: v})} validator={(val: string) => val.length > 10}/>
                 <Checkbox crossType={CheckboxCrossTypes.DefaultCross} disabled={this.state.chkDisabled} checked={this.state.chkChecked}/>
                 <Checkbox crossType={CheckboxCrossTypes.GreenHook} disabled={this.state.chkDisabled} checked={this.state.chkChecked}/>
-                <Select options={this.state.selectionOptions} onChange={val => this.setState({selectedValue: val.value})}/>
+                <Select options={this.state.selectionOptions} onChange={val => this.setState({selectedValue: val.value})} validator={val => val.length > 0}/>
                 <Label value={this.state.selectedValue}/>
                 <FileInput onChange={(file: File) => this.setState({selectedValue: file.name})} title="Bitte wählen" 
                     validator={(file: File | File[]) => !!file}/>

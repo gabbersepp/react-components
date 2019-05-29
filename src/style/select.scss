@@ -1,6 +1,6 @@
 .select {
     width: 100%;
-    position: relative;
+    //position: relative;
 
     &.select--invalid {
         border: 1px solid red;
@@ -12,7 +12,7 @@
 
     .select-results {
         position: absolute;
-        width: 100%;
+        //width: 100%;
         display: none;
         background-color: white;
 

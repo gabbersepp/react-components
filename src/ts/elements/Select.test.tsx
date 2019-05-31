@@ -2,7 +2,8 @@ import "jsdom-global/register";
 import * as React from "react";
 import Select, { ISelectState } from "./Select";
 import { shallow, mount } from "enzyme";
-import { ISelectItem, ISelectProps } from "src/index-bundle";
+import ISelectItem from "../interfaces/ISelectItem";
+import ISelectProps from "../interfaces/ISelectProps";
 
 describe("Select", () => {
     let onChangeFn: jest.Mock = null;

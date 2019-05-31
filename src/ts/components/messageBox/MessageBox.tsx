@@ -8,14 +8,14 @@ import Button from "./../../elements/Button";
 let instance: MessageBox = null;
 const okCancelBtns: IMsgBoxButton[] = [{ title: "OK", onClick: null}, { title: "Abbrechen", onClick: null }];
 
-export function showOkCancel(title: string, msg: string): Promise<void> {
-    return new Promise((resolve: () => void, reject: () => void) => {
+export function showOkCancel(title: string, msg: string): Promise<boolean> {
+    return new Promise((resolve: (val: boolean) => void) => {
         okCancelBtns[0].onClick = () => {
-            resolve();
+            resolve(true);
             instance.hide();
         };
         okCancelBtns[1].onClick = () => {
-            reject();
+            resolve(false);
             instance.hide();
         };
         instance.show(title, msg, okCancelBtns);

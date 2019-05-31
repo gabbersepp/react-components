@@ -6,7 +6,6 @@
         "module": "commonjs",
         "target": "es6",
         "jsx": "react",
-        "baseUrl": "./",
         "declaration": true,
         "declarationDir": "dist"
     },

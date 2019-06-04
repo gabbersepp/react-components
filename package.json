@@ -32,8 +32,8 @@
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.11",
     "@types/jsdom": "^12.2.3",
-    "@types/react": "^16.8.8",
-    "@types/react-dom": "^16.8.2",
+    "@types/react": "16.x.x",
+    "@types/react-dom": "16.x.x",
     "css-loader": "^2.1.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
@@ -56,7 +56,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react": "16.x.x",
+    "react-dom": "16.x.x"
   }
 }

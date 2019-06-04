@@ -27,7 +27,7 @@ export default class Select extends React.Component<ISelectProps, ISelectState> 
                 <div className={`select ${this.props.className || ""} ${!this.state.isValid ? "select--invalid" : ""}`} ref={this.selectRef}>
                 <Input onFocus={() => this.openDropdown()} value={this.getValue(this.state.selectedKey)} onChange={(val) => this.filter(val)}/>
                 <div className={`select-results ${this.state.dropDownOpened ? "select-results--open" : ""}`}>
-                    {this.state.filtered.map(i => (<div tabIndex={0} className="select-item" key={i.key} onClick={(e) => this.select(i, e.currentTarget)}>{i.value}</div>))}
+                    {this.state.filtered.filter(x => x.key).map(i => (<div tabIndex={0} className="select-item" key={i.key} onClick={(e) => this.select(i, e.currentTarget)}>{i.value}</div>))}
                 </div>
             </div>
         )
@@ -111,7 +111,7 @@ export default class Select extends React.Component<ISelectProps, ISelectState> 
         if (val && val !== "") {
             items = this.state.options.filter(x => x.value.indexOf(val) > -1);
         } else {
-            items = this.state.options;
+            items = [].concat(this.state.options);
         }
 
         if (this.props.adjustFiltered) {

@@ -114,6 +114,10 @@ export default class Select extends React.Component<ISelectProps, ISelectState> 
             items = this.state.options;
         }
 
+        if (this.props.adjustFiltered) {
+            items = this.props.adjustFiltered(items, val);
+        }
+
         const newState: ISelectState = StateUtils.newFromObj(this.state);
         newState.filtered = items;
         this.setState(newState);

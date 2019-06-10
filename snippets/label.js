@@ -7,5 +7,6 @@ snippetsList.push({
     execute: React.createElement(ReactComponents.Label, { 
         value: "Label value"
     }),
-    id: "label"
+    id: "label",
+    displayLink: "Label"
 });

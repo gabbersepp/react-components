@@ -1,3 +1,5 @@
+// http://infoheap.com/online-react-jsx-to-javascript/
+
 var render = (elementId, reactElementFunction, props) => {
     const e = document.getElementById(elementId);
     const reactElement = React.createElement(reactElementFunction, props);

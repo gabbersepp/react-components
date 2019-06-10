@@ -10,5 +10,6 @@ snippetsList.push({
         title: "Button",
         onClick: () => alert("Button was clicked")
     }),
-    id: "button"
+    id: "button",
+    displayLink: "Button"
 });

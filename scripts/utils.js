@@ -12,7 +12,7 @@ var renderTabContainerForSnippet = (snippet) => {
         { 
             tabs: [
                 {
-                    title: "Description", 
+                    title: snippet.displayLink, 
                     active: true, 
                     id: "text" + snippet.id, 
                     enabled: true, 

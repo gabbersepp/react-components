@@ -35,9 +35,9 @@ function yesNo() {
         children: [btn1, btn2, React.createElement(ReactComponents.MessageBox)]
     });
     
-    var jsCode = `
+    var tsCode = `
     ....
-    var buttons = [{
+    var buttons: ReactComponents.IMsgBoxButton[] = [{
         title: "btn1",
         onClick: () => {}
     },
@@ -51,14 +51,14 @@ function yesNo() {
     }];
     ReactComponents.messageBox.show("Title", "Yes or Cancel?", buttons)
     ....
-    const result = await ReactComponents.messageBox.showOkCancel("Title", "Yes or Cancel?");
+    const result: boolean = await ReactComponents.messageBox.showOkCancel("Title", "Yes or Cancel?");
     if (result) {
         ReactComponents.messageBox.showOkCancel("Title", "You clicked YES");
     } else {
         ReactComponents.messageBox.showOkCancel("Title", "I am sorry about that!");
     }
     `
-    return [div, jsCode];
+    return [div, tsCode];
 }
 
 const yesNoResult = yesNo();
@@ -66,7 +66,7 @@ const yesNoResult = yesNo();
 snippetsList.push({
     description: "Show a message-box with Yes / Cancel buttons. The result of the user action can be accessed by awaiting the promise. Or use fully customizable show() that accepts a infinite number of buttons",
     jsxCode: `<ReactComponents.MessageBox /> ${yesNoResult[1]}`,
-    jsCode: `React.createElement(ReactComponents.MessageBox) ${yesNoResult[1]}`,
+    tsCode: `React.createElement(ReactComponents.MessageBox) ${yesNoResult[1]}`,
     execute: yesNoResult[0],
     id: "msg-box",
     displayLink: "MessageBox"

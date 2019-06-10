@@ -2,8 +2,12 @@ var snippetsList = window.snippetsList || [];
 
 snippetsList.push({
     description: "Display a Label",
-    jsxCode: `<Label value='Label Value'/>`,
-    jsCode: "React.createElement(Label, { value='Label value' })",
+    jsxCode: `<ReactComponents.Label value='Label Value'/>`,
+    tsCode: 
+`
+const label: ReactComponents.ILabelProps = { value: "Label value" };
+React.createElement(ReactComponents.Label, label);
+`,
     execute: React.createElement(ReactComponents.Label, { 
         value: "Label value"
     }),

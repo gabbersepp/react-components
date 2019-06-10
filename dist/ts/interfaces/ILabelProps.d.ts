@@ -1,3 +1,3 @@
-export interface ILabelProps {
+export default interface ILabelProps {
     value: string;
 }

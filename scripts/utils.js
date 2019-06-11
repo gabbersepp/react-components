@@ -19,16 +19,16 @@ var renderTabContainerForSnippet = (snippet) => {
                     element: getDescriptionTab(snippet.description) 
                 },
                 {
-                    title: "JSX", 
-                    id: "jsx" + snippet.id, 
+                    title: "JS", 
+                    id: "js" + snippet.id, 
                     enabled: true, 
-                    element: getJSXCodeTab(snippet.jsxCode) 
+                    element: getJSCodeTab(snippet.jsCode) 
                 },
                 {
-                    title: "TS", 
-                    id: "ts" + snippet.id, 
+                    title: "TSX", 
+                    id: "tsx" + snippet.id, 
                     enabled: true, 
-                    element: getTSCodeTab(snippet.tsCode) 
+                    element: getTSXCodeTab(snippet.tsxCode) 
                 }, 
                 {
                     title: "Example", 
@@ -44,13 +44,13 @@ var getDescriptionTab = (str) => {
     return React.createElement("div", null, str);
 }
 
-var getTSCodeTab = (str) => {
+var getTSXCodeTab = (str) => {
     var code = React.createElement("code", { className: "ts" }, null, str);
     var pre = React.createElement("pre", { children: code });
     return pre;
 }
 
-var getJSXCodeTab = (str) => {
+var getJSCodeTab = (str) => {
     var code = React.createElement("code", { className: "xml" }, null, str);
     var pre = React.createElement("pre", { children: code });
     return pre;

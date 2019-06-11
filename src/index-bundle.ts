@@ -1,7 +1,7 @@
 // index-bundle must be .ts to force tsc to create a definition file!
 
 // components
-import MessageBox, { showOkCancel } from "./ts/components/messageBox/MessageBox";
+import MessageBox, { showOkCancel, show } from "./ts/components/messageBox/MessageBox";
 import Toaster, { success, error } from "./ts/components/Toaster";
 import Tabs from "./ts/components/tabs/Tabs";
 import Tab from "./ts/components/tabs/external/Tab";
@@ -53,7 +53,8 @@ const toaster = {
 }
 
 const messageBox = {
-    showOkCancel
+    showOkCancel,
+    show
 }
 
 const utils = {

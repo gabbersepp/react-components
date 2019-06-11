@@ -45,13 +45,13 @@ var getDescriptionTab = (str) => {
 }
 
 var getTSXCodeTab = (str) => {
-    var code = React.createElement("code", { className: "ts" }, null, str);
+    var code = React.createElement("code", { className: "xml" }, null, str);
     var pre = React.createElement("pre", { children: code });
     return pre;
 }
 
 var getJSCodeTab = (str) => {
-    var code = React.createElement("code", { className: "xml" }, null, str);
+    var code = React.createElement("code", { className: "js" }, null, str);
     var pre = React.createElement("pre", { children: code });
     return pre;
 }

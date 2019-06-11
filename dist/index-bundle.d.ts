@@ -1,4 +1,4 @@
-import MessageBox, { showOkCancel } from "./ts/components/messageBox/MessageBox";
+import MessageBox, { showOkCancel, show } from "./ts/components/messageBox/MessageBox";
 import Toaster, { success, error } from "./ts/components/Toaster";
 import Tabs from "./ts/components/tabs/Tabs";
 import Tab from "./ts/components/tabs/external/Tab";
@@ -43,6 +43,7 @@ declare const toaster: {
 };
 declare const messageBox: {
     showOkCancel: typeof showOkCancel;
+    show: typeof show;
 };
 declare const utils: {
     StateUtils: typeof StateUtils;

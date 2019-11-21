@@ -27,7 +27,8 @@
     "compile": "npm run clean && npm run compile:dev && npm run compile:prod",
     "jest": "jest",
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run --record --key 97fbfa7f-5f4e-41b7-aceb-4b01ab244358",
+    "cy:ci": "start-server-and-test start http-get://localhost:8081 cy:run"
   },
   "devDependencies": {
     "@types/enzyme": "^3.10.3",
@@ -50,6 +51,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "sass-loader": "^8.0.0",
+    "start-server-and-test": "^1.10.6",
     "ts-jest": "^24.1.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.2",

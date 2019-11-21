@@ -25,7 +25,9 @@
     "compile:dev": "node node_modules/webpack/bin/webpack.js --env dev",
     "compile:prod": "node node_modules/webpack/bin/webpack.js -p --env prod",
     "compile": "npm run clean && npm run compile:dev && npm run compile:prod",
-    "test": "jest"
+    "jest": "jest",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "devDependencies": {
     "@types/enzyme": "^3.10.3",
@@ -35,6 +37,7 @@
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",
     "css-loader": "^3.2.0",
+    "cypress": "^3.6.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "file-loader": "^4.3.0",

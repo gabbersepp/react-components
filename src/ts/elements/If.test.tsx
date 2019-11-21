@@ -6,7 +6,7 @@ import If from "./If";
 describe("If", () => {
     it("should show childs only if expression is true", () => {
         const wrapper = mount(<If expression={false}><div>Test</div></If>);
-        expect(wrapper.text()).toBeNull();
+        expect(wrapper.text()).toBe("");
         wrapper.setProps({ expression: true });
         expect(wrapper.text()).toContain("Test");
         wrapper.unmount();

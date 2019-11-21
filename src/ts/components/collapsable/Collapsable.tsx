@@ -5,7 +5,6 @@ import CollapsableHeader from "./CollapsableHeader";
 import ICollapsableHeaderProps from "../../interfaces/collapsable/ICollapsableHeaderProps";
 import ICollapsableContentProps from "../../interfaces/collapsable/ICollapsableContentProps";
 import CollapsableContent from "./CollapsableContent";
-import StateUtils from "../../utils/StateUtils";
 
 export default class Collapsable extends React.Component<ICollapsableProps, ICollapsableState> {
     constructor(props: ICollapsableProps) {
@@ -20,8 +19,8 @@ export default class Collapsable extends React.Component<ICollapsableProps, ICol
         let header: React.ReactElement<ICollapsableHeaderProps> = this.props.children.find(x => x.type === CollapsableHeader);
         let content: React.ReactElement<ICollapsableContentProps> = this.props.children.find(x => x.type === CollapsableContent);
 
-        const newHeaderProps = StateUtils.newFromObj(header.props);
-        const newContentProps = StateUtils.newFromObj(content.props);
+        const newHeaderProps = { ...header.props };
+        const newContentProps = { ...content.props };
         newHeaderProps.collapsed = this.state.collapsed && !this.state.keepOpen;
         newHeaderProps.onToggle = this.onToggle.bind(this, newHeaderProps.onToggle);
         newContentProps.collapsed = this.state.collapsed && !this.state.keepOpen;
@@ -40,7 +39,7 @@ export default class Collapsable extends React.Component<ICollapsableProps, ICol
 
     public componentDidUpdate(prevProps: ICollapsableProps) {
         if (prevProps.keepOpen !== this.props.keepOpen) {
-            this.setState(StateUtils.setProp(this.state, "keepOpen", this.props.keepOpen));
+            this.setState({ keepOpen: this.props.keepOpen });
         }
     }
 
@@ -49,12 +48,11 @@ export default class Collapsable extends React.Component<ICollapsableProps, ICol
             return;
         }
 
-        const newState: ICollapsableState = StateUtils.newFromObj(this.state);
-        newState.collapsed = !newState.collapsed;
-        this.setState(newState);
+        const collapsed = !this.state.collapsed;
+        this.setState({ collapsed: collapsed });
 
         if (additionalFunction) {
-            additionalFunction(newState.collapsed);
+            additionalFunction(collapsed);
         }
     }
 }

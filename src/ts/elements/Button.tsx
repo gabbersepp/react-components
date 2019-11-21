@@ -1,7 +1,6 @@
 import * as React from "react";
 import IButtonProps from "../interfaces/IButtonProps";
 import "./../../style/button.scss";
-import StateUtils from "../utils/StateUtils";
 
 export default class Button extends React.Component<IButtonProps, IButtonState> {
     constructor(props: IButtonProps) {
@@ -25,7 +24,9 @@ export default class Button extends React.Component<IButtonProps, IButtonState> 
 
     public componentDidUpdate(prevProps: IButtonProps): void {
         if (this.props.disabled !== prevProps.disabled) {
-            this.setState(StateUtils.setProp(this.state, "disabled", this.props.disabled));
+            this.setState({
+                disabled: this.props.disabled
+            });
         }
     }
 }

@@ -4,7 +4,6 @@ import Label from "./../elements/Label";
 import MessageBox, { showOkCancel } from "./messageBox/MessageBox";
 
 import Checkbox, { CheckboxCrossTypes } from "./../elements/Checkbox";
-import StateUtils from "../utils/StateUtils";
 import ISelectItem from "../interfaces/ISelectItem";
 import Select from "./../elements/Select";
 import FileInput from "../elements/FileInput";
@@ -106,7 +105,7 @@ export default class TsComp extends React.Component<any, any> {
                             <Label value={this.state.tabLabelText}/>
                             <Button title="button von tab 2" onClick={() => {}}/>
                             <Button title="button von tab 2" onClick={() => {}}/>
-                            <Input onChange={(val: string) => this.setState(StateUtils.setProp(this.state, "tabLabelText", val))} />
+                            <Input onChange={(val: string) => this.setState({ tabLabelText: val })} />
                         </TabBody>
                     </Tab>
                 </Tabs>
@@ -125,7 +124,7 @@ export default class TsComp extends React.Component<any, any> {
     }
 
     private toggle(prop: string): void {
-        const newObj: any = StateUtils.newFromObj(this.state);
+        let newObj = { ...this.state };
         newObj[prop] = !newObj[prop];
         this.setState(newObj);
         success("erfolgreich");

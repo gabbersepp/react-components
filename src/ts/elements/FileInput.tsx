@@ -1,7 +1,6 @@
 import * as React from "react";
 import IFileUploadProps from "../interfaces/IFileUploadProps";
 import "./../../style/fileinput.scss";
-import StateUtils from "../utils/StateUtils";
 
 export default class FileInput extends React.Component<IFileUploadProps, IFileInputState> {
     constructor(props: IFileUploadProps) {
@@ -30,14 +29,15 @@ export default class FileInput extends React.Component<IFileUploadProps, IFileIn
             files.push(fileList.item(i));
         }
 
-        let newState: IFileInputState = StateUtils.newFromObj(this.state);
-        newState.isValid = true;
+        let isValid: boolean = true;
         
         if (this.props.validator) {
-            newState.isValid = this.props.validator(files);
+            isValid = this.props.validator(files);
         }
 
-        this.setState(newState);
+        this.setState({
+            isValid: isValid
+        });
         
         if (this.props.multiple) {
             this.props.onChange(files)

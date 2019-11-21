@@ -4,7 +4,6 @@ import TabHeader from "./internal/TabHeader";
 import TabContent from "./internal/TabContent";
 import "./../../../style/tabs.scss";
 import ITab from "../../interfaces/tabs/ITab";
-import StateUtils from "./../../utils/StateUtils";
 import Tab from "./external/Tab";
 
 import TabHeaderExternal from "./external/TabHeader";
@@ -43,9 +42,10 @@ export default class Tabs extends React.Component<ITabsProps, ITabsState> {
         
         if (this.checkTabRefreshment(tabsFromOldProps, tabsFromNewProps)) {
             // if refresh required -> use current state but changed from props
-            const newState: ITabsState = StateUtils.newFromObj(this.state);
-            newState.tabs = tabsFromOldProps.map(tab => this.getRealTab(tab, tabsFromNewProps.find(x => x.id === tab.id), this.state.tabs.find(x => x.id === tab.id)));
-            this.setState(newState);
+            const tabs = tabsFromOldProps.map(tab => this.getRealTab(tab, tabsFromNewProps.find(x => x.id === tab.id), this.state.tabs.find(x => x.id === tab.id)));
+            this.setState({
+                tabs: tabs
+            });
         }
     }
 
@@ -71,9 +71,13 @@ export default class Tabs extends React.Component<ITabsProps, ITabsState> {
 
     public selectTab(tab: ITab) {
         if (tab.enabled) {
-            const newState = StateUtils.newFromObj(this.state);
-            newState.tabs.forEach((t: ITab) => t.active = t.id === tab.id);
-            this.setState(newState);
+            const tabs = this.state.tabs.map((t: ITab) =>  {
+                t.active = t.id === tab.id;
+                return t;
+            });
+            this.setState({
+                tabs
+            });
         }
     }
 

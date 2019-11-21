@@ -36,7 +36,6 @@ import IGroupProps from "./ts/interfaces/IGroupProps";
 import ICollapsableProps from "./ts/interfaces/collapsable/ICollapsableProps";
 import ICollapsableHeaderProps from "./ts/interfaces/collapsable/ICollapsableHeaderProps";
 import ICollapsableContentProps from "./ts/interfaces/collapsable/ICollapsableContentProps";
-import StateUtils from "./ts/utils/StateUtils";
 declare const toaster: {
     success: typeof success;
     error: typeof error;
@@ -44,8 +43,5 @@ declare const toaster: {
 declare const messageBox: {
     showOkCancel: typeof showOkCancel;
     show: typeof show;
-};
-declare const utils: {
-    StateUtils: typeof StateUtils;
 };
 export { MessageBox, Toaster, Button, Checkbox, CheckboxCrossTypes, FileInput, If, Input, Label, Overlay, Select, Thumbnail, Tabs, Tab, TabHeader, TabContent, Group, Collapsable, CollapsableHeader, CollapsableContent, IButtonProps, ICheckboxProps, IFileUploadProps, IIfProps, IInputProps, ILabelProps, IOverlayProps, ISelectItem, ISelectProps, IThumbnailProps, ITabsProps, ITabProps, ITabContentProps, ITabHeaderProps, ITab, IGroupProps, ICollapsableProps, ICollapsableHeaderProps, ICollapsableContentProps, toaster, messageBox, utils };

@@ -1,7 +1,6 @@
 import * as React from "react";
 import If from "./../elements/If";
 import "./../../style/toaster.scss";
-import StateUtils from "../utils/StateUtils";
 import eventQueue from "./../utils/EventQueue";
 
 let instance: Toaster = null;
@@ -69,8 +68,9 @@ export default class Toaster extends React.Component<{}, IToasterState> {
     }
 
     private triggerFadeOut(): void {
-        const newState: IToasterState = StateUtils.setProp(this.state, "fadeOut", true);
-        this.setState(newState);
+        this.setState({
+            fadeOut: true
+        });
         eventQueue.queue(this.triggerDisable, 2000);
     }
 

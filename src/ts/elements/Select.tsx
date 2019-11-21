@@ -2,7 +2,6 @@ import * as React from "react";
 import Input from "./Input";
 import ISelectProps from "../interfaces/ISelectProps";
 import ISelectItem from "../interfaces/ISelectItem";
-import StateUtils from "../utils/StateUtils";
 import "./../../style/select.scss";
 
 export default class Select extends React.Component<ISelectProps, ISelectState> {
@@ -64,35 +63,39 @@ export default class Select extends React.Component<ISelectProps, ISelectState> 
     public componentDidUpdate(prevProps: ISelectProps) {
         if (prevProps.options !== this.props.options ||
                 prevProps.options.length !== this.props.options.length) {
-            const newState: ISelectState = StateUtils.newFromObj(this.state);
-            newState.options = [].concat(this.props.options);
-            newState.filtered = [].concat(this.props.options);
-            this.setState(newState);
+            this.setState({
+                options: [].concat(this.props.options),
+                filtered: [].concat(this.props.options)
+            });
         }
     }
 
-    private closeDropdown(state?: ISelectState): void {
-        state = state || StateUtils.newFromObj(this.state);
-        state.dropDownOpened = false;
-        this.setState(state);
+    private closeDropdown(): void {
+        this.setState({
+            dropDownOpened: false
+        });
     }
 
     private openDropdown(): void {
-        const newState = StateUtils.setProp(this.state, "dropDownOpened", true);
-        this.setState(newState);
+        this.setState({
+            dropDownOpened: true
+        });
     }
 
     private select(item: ISelectItem, e: HTMLDivElement): void {
-        let newState: ISelectState = StateUtils.newFromObj(this.state);
-        newState.isValid = true;
+        let isValid: boolean = true;
 
         if (this.props.validator) {
-            newState.isValid = this.props.validator(item ? item.key : "");
+            isValid = this.props.validator(item ? item.key : "");
         }
 
         this.props.onChange(item);
-        newState.selectedKey = item.key;
-        this.closeDropdown(newState);
+        // not sure if setstate() is necessary here
+        this.setState({
+            selectedKey: item.key,
+            isValid: isValid
+        });
+        this.closeDropdown();
     }
 
     private getValue(key: string): string {
@@ -118,9 +121,9 @@ export default class Select extends React.Component<ISelectProps, ISelectState> 
             items = this.props.adjustFiltered(items, val);
         }
 
-        const newState: ISelectState = StateUtils.newFromObj(this.state);
-        newState.filtered = items;
-        this.setState(newState);
+        this.setState({
+            filtered: items
+        });
     }
 }
 

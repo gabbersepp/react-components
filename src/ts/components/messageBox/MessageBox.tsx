@@ -1,5 +1,4 @@
 import * as React from "react";
-import StateUtils from "../../utils/StateUtils";
 import Overlay from "../../elements/Overlay";
 import "./../../../style/messagebox.scss";
 import { IMsgBoxButton } from "./IMsgBoxButton";
@@ -39,18 +38,19 @@ export default class MessageBox extends React.Component<{}, IMessageBoxState> {
     }
 
     public hide(): void {
-        const newObj: IMessageBoxState = StateUtils.newFromObj(this.state);
-        newObj.show = false;
-        this.setState(newObj);
+        this.setState({
+            show: false
+        });
     }
 
     public show(title: string, msg: string, buttons: IMsgBoxButton[]): void {
-        const newObj: IMessageBoxState = StateUtils.newFromObj(this.state);
-        newObj.title = title;
-        newObj.msg = msg;
-        newObj.show = true;
-        newObj.buttons = buttons;
-        this.setState(newObj);
+        const state: IMessageBoxState = {
+            title,
+            msg,
+            show: true,
+            buttons
+        };
+        this.setState(state);
     }
 
     public render(): JSX.Element {

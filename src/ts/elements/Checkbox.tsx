@@ -1,6 +1,5 @@
 import * as React from "react";
 import "./../../style/checkbox.scss";
-import StateUtils from "../utils/StateUtils";
 import ICheckboxProps from "../interfaces/ICheckboxProps";
 // see: https://github.com/Jimdo/typings-for-css-modules-loader
 
@@ -32,12 +31,13 @@ export default class Checkbox extends React.Component<ICheckboxProps, ICheckboxS
 
     private onClick(): void {
         if (!this.state.disabled) {
-            const newState: ICheckboxState = StateUtils.newFromObj(this.state);
-            newState.checked = !newState.checked;
-            this.setState(newState);
+            let checked: boolean = !this.state.checked;
+            this.setState({
+                checked: checked
+            });
             
             if (this.props.onStateChange) {
-                this.props.onStateChange(newState.checked);
+                this.props.onStateChange(checked);
             }
         }
     }

@@ -1,7 +1,6 @@
 import * as React from "react";
 import IInputProps from "../interfaces/IInputProps";
 import "./../../style/input.scss";
-import StateUtils from "../utils/StateUtils";
 
 export default class Input extends React.Component<IInputProps, IInputState> {
     constructor(props: IInputProps) {
@@ -32,15 +31,16 @@ export default class Input extends React.Component<IInputProps, IInputState> {
     }
 
     private onChange(val: string) {
-        let newState: IInputState = StateUtils.newFromObj(this.state);
-        newState.isValid = true;
+        let isValid: boolean = true;
 
         if (this.props.validator) {
-            newState.isValid = this.props.validator(val);
+            isValid = this.props.validator(val);
         }
 
-        this.setState(newState);
-        newState.value = val;
+        this.setState({
+            isValid: isValid,
+            value: val
+        });
     
         if (this.props.onChange) {
             this.props.onChange(val);

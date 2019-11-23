@@ -29,7 +29,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "cy:run-record": "cypress run --record --key 97fbfa7f-5f4e-41b7-aceb-4b01ab244358",
-    "cy:ci": "start-server-and-test start http-get://localhost:8080 cy:run"
+    "cy:ci": "start-server-and-test start http-get://localhost:8080 cy:run-record"
   },
   "devDependencies": {
     "@types/enzyme": "^3.10.3",

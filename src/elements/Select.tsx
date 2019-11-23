@@ -2,7 +2,7 @@ import * as React from "react";
 import Input from "./Input";
 import ISelectProps from "../interfaces/ISelectProps";
 import ISelectItem from "../interfaces/ISelectItem";
-import "./../../style/select.scss";
+import "./../style/select.scss";
 
 export default class Select extends React.Component<ISelectProps, ISelectState> {
 

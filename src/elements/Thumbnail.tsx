@@ -1,6 +1,6 @@
 import * as React from "react";
 import If from "./If";
-import "./../../style/thumbnail.scss";
+import "./../style/thumbnail.scss";
 import IThumbnailProps from "../interfaces/IThumbnailProps";
 import Overlay from "./Overlay";
 

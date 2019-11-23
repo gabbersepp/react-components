@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import TsComp from "./ts/components/TsComp";
+import TsComp from "./TsComp";
+import "jb-react-components-default-theme/dist/jb-react-components-default-theme.css"
 
 ReactDOM.render(
     React.createElement(TsComp),

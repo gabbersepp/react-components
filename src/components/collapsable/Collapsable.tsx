@@ -1,6 +1,6 @@
 import * as React from "react";
 import ICollapsableProps from "../../interfaces/collapsable/ICollapsableProps";
-import "./../../../style/collapsable.scss";
+import "./../../style/collapsable.scss";
 import CollapsableHeader from "./CollapsableHeader";
 import ICollapsableHeaderProps from "../../interfaces/collapsable/ICollapsableHeaderProps";
 import ICollapsableContentProps from "../../interfaces/collapsable/ICollapsableContentProps";

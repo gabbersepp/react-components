@@ -10,6 +10,6 @@
         "declarationDir": "dist"
     },
     "include": [
-        "./src/**/*"
+        "./src/**/*", "test/index.js", "setupTests.ts", "test/TsComp.tsx"
     ]
 }

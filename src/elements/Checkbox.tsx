@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./../../style/checkbox.scss";
+import "./../style/checkbox.scss";
 import ICheckboxProps from "../interfaces/ICheckboxProps";
 // see: https://github.com/Jimdo/typings-for-css-modules-loader
 

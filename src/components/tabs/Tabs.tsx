@@ -2,7 +2,7 @@ import * as React from "react";
 import ITabsProps from "../../interfaces/tabs/ITabsProps";
 import TabHeader from "./internal/TabHeader";
 import TabContent from "./internal/TabContent";
-import "./../../../style/tabs.scss";
+import "./../../style/tabs.scss";
 import ITab from "../../interfaces/tabs/ITab";
 import Tab from "./external/Tab";
 

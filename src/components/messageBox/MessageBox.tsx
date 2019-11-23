@@ -1,6 +1,6 @@
 import * as React from "react";
 import Overlay from "../../elements/Overlay";
-import "./../../../style/messagebox.scss";
+import "./../../style/messagebox.scss";
 import { IMsgBoxButton } from "./IMsgBoxButton";
 import Button from "./../../elements/Button";
 

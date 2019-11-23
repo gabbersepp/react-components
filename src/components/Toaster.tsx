@@ -1,6 +1,6 @@
 import * as React from "react";
 import If from "./../elements/If";
-import "./../../style/toaster.scss";
+import "./../style/toaster.scss";
 import eventQueue from "./../utils/EventQueue";
 
 let instance: Toaster = null;

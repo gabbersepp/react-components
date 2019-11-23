@@ -23,7 +23,7 @@ module.exports = function(env)
 
   if (dev) {
     plugins.push(new HtmlWebPackPlugin({
-      template: "./src/index.html",
+      template: "./test/index.html",
       filename: "./index.html"
     }));
   }
@@ -36,7 +36,7 @@ module.exports = function(env)
 
   // index-bundle must be .ts to force tsc to create a definition file!
   return {
-    entry: dev ? "./src/index.js" : "./src/index-bundle.ts",
+    entry: dev ? "./test/index.js" : "./src/index-bundle.ts",
     resolve: {
         extensions: [".ts", ".tsx", ".js"]
     },
@@ -61,7 +61,7 @@ module.exports = function(env)
           }
         },
         {
-            test: /\.scss$/,
+            test: /\.s?css$/,
             use: [
                 MiniCssExtractPlugin.loader,
                 "css-loader",

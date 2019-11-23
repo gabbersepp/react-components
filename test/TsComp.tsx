@@ -1,25 +1,25 @@
 import * as React from "react";
-import Input from "./../elements/Input";
-import Label from "./../elements/Label";
-import MessageBox, { showOkCancel } from "./messageBox/MessageBox";
+import Input from "../src/elements/Input";
+import Label from "../src/elements/Label";
+import MessageBox, { showOkCancel } from "../src/components/messageBox/MessageBox";
 
-import Checkbox, { CheckboxCrossTypes } from "./../elements/Checkbox";
-import ISelectItem from "../interfaces/ISelectItem";
-import Select from "./../elements/Select";
-import FileInput from "../elements/FileInput";
+import Checkbox, { CheckboxCrossTypes } from "../src/elements/Checkbox";
+import ISelectItem from "../src/interfaces/ISelectItem";
+import Select from "../src/elements/Select";
+import FileInput from "../src/elements/FileInput";
 
-import Toaster, { success } from "./Toaster";
-import Thumbnail from "./../elements/Thumbnail";
-import Tabs from "./tabs/Tabs";
-import ITab from "../interfaces/tabs/ITab";
-import Button from "../elements/Button";
-import Tab from "./tabs/external/Tab";
-import TabHeader from "./tabs/external/TabHeader";
-import TabBody from "./tabs/external/TabContent";
-import Group from "./Group";
-import Collapsable from "./collapsable/Collapsable";
-import CollapsableHeader from "./collapsable/CollapsableHeader";
-import CollapsableContent from "./collapsable/CollapsableContent";
+import Toaster, { success } from "../src/components/Toaster";
+import Thumbnail from "../src/elements/Thumbnail";
+import Tabs from "../src/components/tabs/Tabs";
+import ITab from "../src/interfaces/tabs/ITab";
+import Button from "../src/elements/Button";
+import Tab from "../src/components/tabs/external/Tab";
+import TabHeader from "../src/components/tabs/external/TabHeader";
+import TabBody from "../src/components/tabs/external/TabContent";
+import Group from "../src/components/Group";
+import Collapsable from "../src/components/collapsable/Collapsable";
+import CollapsableHeader from "../src/components/collapsable/CollapsableHeader";
+import CollapsableContent from "../src/components/collapsable/CollapsableContent";
 
 
 let items: ISelectItem[] = [

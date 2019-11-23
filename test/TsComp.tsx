@@ -24,6 +24,9 @@ import CollapsableContent from "../src/components/collapsable/CollapsableContent
 import IfSection from "./sections/IfSection";
 import Section from "./sections/Section";
 import ButtonSection from "./sections/ButtonSection";
+import LabelSection from "./sections/LabelSection";
+import InputSection from "./sections/InputSection";
+import CheckboxSection from "./sections/CheckboxSection";
 
 
 let items: ISelectItem[] = [
@@ -49,7 +52,7 @@ let tabs: ITab[] = [
 ]
 
 let sections: Section[] = [
-    IfSection, ButtonSection
+    IfSection, ButtonSection, LabelSection, InputSection, CheckboxSection
 ];
 
 export default class TsComp extends React.Component<any, any> {
@@ -89,8 +92,6 @@ export default class TsComp extends React.Component<any, any> {
 
         return (
             <div>
-                <Label value={this.state.value}/>
-                <Input onChange={(v: string) => this.setState({value: v})} validator={(val: string) => val.length > 10}/>
                 <Checkbox crossType={CheckboxCrossTypes.DefaultCross} disabled={this.state.chkDisabled} checked={this.state.chkChecked}/>
                 <Checkbox crossType={CheckboxCrossTypes.GreenHook} disabled={this.state.chkDisabled} checked={this.state.chkChecked}/>
                 <Select options={this.state.selectionOptions} onChange={val => this.setState({selectedValue: val.value})} validator={val => val.length > 0}/>

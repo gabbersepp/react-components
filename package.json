@@ -1,9 +1,9 @@
 {
   "name": "jb-react-components",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "A collection of different React components.",
   "main": "dist/jb-react-components.js",
-  "typings": "dist/index-bundle.d.ts",
+  "typings": "dist/src/index-bundle.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gabbersepp/react-components.git"

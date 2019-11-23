@@ -21,6 +21,10 @@ import Collapsable from "../src/components/collapsable/Collapsable";
 import CollapsableHeader from "../src/components/collapsable/CollapsableHeader";
 import CollapsableContent from "../src/components/collapsable/CollapsableContent";
 
+import IfSection from "./sections/IfSection";
+import Section from "./sections/Section";
+import ButtonSection from "./sections/ButtonSection";
+
 
 let items: ISelectItem[] = [
     { key: "1", value: "text 1"},
@@ -44,6 +48,10 @@ let tabs: ITab[] = [
     { title: "Hallo2", id: "2", element: (<div>Hallo2 <Input onChange={() => {}} /></div> ), active: true, enabled: true, allowClose: true },
 ]
 
+let sections: Section[] = [
+    IfSection, ButtonSection
+];
+
 export default class TsComp extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
@@ -61,6 +69,21 @@ export default class TsComp extends React.Component<any, any> {
     }
 
     public render(): JSX.Element {
+        return (
+            <div className="test-container">
+                {sections.map(s => (
+                    <div className={`section ${s.className}`} key={s.className}>
+                        <div className="description">{s.description}</div>
+                        <div className="content">
+                            {React.createElement(s as any)}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        )
+    }
+
+    public render1(): JSX.Element {
 
         tabs[0].enabled = this.state.tab;
 

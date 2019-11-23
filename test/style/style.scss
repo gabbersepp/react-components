@@ -1,0 +1,15 @@
+.test-container {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+    flex-direction: column;
+
+    .section {
+        margin-bottom: 1rem;
+        border: 1px black solid;
+        padding: 0.5rem;
+    }
+}
+

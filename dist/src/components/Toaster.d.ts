@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./../../style/toaster.scss";
+import "./../style/toaster.scss";
 export declare function success(msg: string): void;
 export declare function error(msg: string): void;
 export default class Toaster extends React.Component<{}, IToasterState> {

@@ -1,6 +1,6 @@
 import * as React from "react";
 import ICollapsableProps from "../../interfaces/collapsable/ICollapsableProps";
-import "./../../../style/collapsable.scss";
+import "./../../style/collapsable.scss";
 export default class Collapsable extends React.Component<ICollapsableProps, ICollapsableState> {
     constructor(props: ICollapsableProps);
     render(): JSX.Element;

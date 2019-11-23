@@ -1,3 +1,0 @@
-interface IButtonState {
-    disabled?: boolean;
-}

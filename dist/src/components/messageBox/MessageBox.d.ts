@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./../../../style/messagebox.scss";
+import "./../../style/messagebox.scss";
 import { IMsgBoxButton } from "./IMsgBoxButton";
 export declare function show(title: string, msg: string, buttons: IMsgBoxButton[]): void;
 export declare function showOkCancel(title: string, msg: string): Promise<boolean>;

@@ -32,6 +32,7 @@
     "cy:ci": "start-server-and-test start http-get://localhost:8080 cy:run-record"
   },
   "devDependencies": {
+    "@cypress/webpack-preprocessor": "^4.1.1",
     "@types/enzyme": "^3.10.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.23",

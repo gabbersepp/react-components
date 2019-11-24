@@ -8,9 +8,13 @@
         "target": "es6",
         "jsx": "react",
         "declaration": true,
-        "declarationDir": "dist"
+        "declarationDir": "dist",
+        "types": ["cypress", "@types/jest"],
+        "typeRoots": [
+          "./typings"
+        ]
     },
     "include": [
-        "./src/**/*", "./test/**/*", "setupTests.ts"
+        "./cypress/**/*", "./src/**/*", "./test/**/*", "setupTests.ts"
     ]
 }

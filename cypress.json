@@ -4,7 +4,7 @@
   "pluginsFile": "cypress/plugins/index.js",
   "screenshotsFolder": "cypress/screenshots",
   "videosFolder": "cypress/videos",
-  "supportFile": false,
+  "supportFile": "cypress/support/Index.ts",
   "video": true,
   "projectId": "jhrbm1"
 }

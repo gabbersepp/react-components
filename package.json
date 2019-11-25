@@ -29,18 +29,18 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "cy:run-record": "cypress run --record --key 97fbfa7f-5f4e-41b7-aceb-4b01ab244358",
-    "cy:ci": "start-server-and-test start http-get://localhost:8080 cy:run-record"
+    "cy:ci": "start-server-and-test start http-get://localhost:8080 cy:run-record",
+    "tsc": "tsc"
   },
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^4.1.1",
     "@types/enzyme": "^3.10.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
-    "@types/jest": "^24.0.23",
+    "@types/jest": "24.0.19",
     "@types/jsdom": "^12.2.4",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",
     "css-loader": "^3.2.0",
-    "cypress": "^3.6.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "file-loader": "^4.3.0",
@@ -55,14 +55,16 @@
     "react-dom": "^16.12.0",
     "sass-loader": "^8.0.0",
     "start-server-and-test": "^1.10.6",
-    "ts-jest": "^24.1.0",
+    "ts-jest": "24.1.0",
     "ts-loader": "^6.2.1",
-    "typescript": "^3.7.2",
+    "typescript": "^3.6.4",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "cypress": "3.4.1"
+  },
   "peerDependencies": {
     "react": "16.x.x",
     "react-dom": "16.x.x"

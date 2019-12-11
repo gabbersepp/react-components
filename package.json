@@ -63,7 +63,7 @@
     "webpack-dev-server": "3.9.0"
   },
   "dependencies": {
-    "cypress": "3.4.1"
+    "cypress": "3.7.0"
   },
   "peerDependencies": {
     "react": "16.x.x",

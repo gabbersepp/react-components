@@ -42,7 +42,7 @@
     "@types/react-dom": "16.9.4",
     "css-loader": "3.2.0",
     "enzyme": "3.10.0",
-    "enzyme-adapter-react-16": "1.15.1",
+    "enzyme-adapter-react-16": "1.15.2",
     "file-loader": "4.3.0",
     "html-webpack-plugin": "3.2.0",
     "jb-react-components-default-theme": "0.6.0",
